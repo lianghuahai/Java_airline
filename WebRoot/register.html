@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<title>CDITS</title>
+    
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+    
+    .navbar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial;
+    }
+
+    .navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+    
+    #selected{
+    background-color: lightgray;
+    color: black;
+    }
+
+    .content{
+        padding-left: 50px;
+        font-size: 30px;
+    }
+    
+    .in{
+        resize: both;
+        width: 200px;
+        height: 30px;
+    }
+    
+    .btn{
+        width: 100px;
+        height: 50px;
+        font-size: 20px;
+        background-color: darkblue;
+        color: white;
+    }
+    
+    .signin{
+        
+    }
+    
+    .register{
+        
+    }
+
+
+</style>
+</head>
+    
+<body>
+    
+<!-- Navigation Bar -->
+<div class="navbar">
+  <a href="CDITS.html" >CDITS</a>
+  <a href="register.html" id="selected">Sign in/Register</a>
+  <a href="#" >My Reservations</a>
+  <a href="#" >My Flight History</a>
+  <a href="#" >Contact Support</a>
+</div>
+    
+<!-- Page content -->
+<div class="content">
+    <div class="signin">
+    <h4>Sign in</h4>
+    <label>Acount No: </label>
+    <input class="in" type="text" id="account">
+    <br>
+    <label>Password:  </label>
+    <input class="in" type="text" id="password">
+    <br><br>
+    <button class="btn" name="login">Log In</button>    
+    </div>
+    
+    <hr>
+    
+    <div class="register">
+    <h4>New User Register</h4>
+    <label>Email: </label>
+    <input class="in" type="text" placeholder="name@gmail.com" name="email">
+    <br>
+    <label>First Name: </label>
+    <input class="in" type="text" name="fname">
+    <label>Last name: </label>
+    <input class="in" type="text" name="lname">
+    <br>
+    <label>Address: </label>
+    <input class="in" size="100" type="text" name="address">
+    <br>
+    <label>City: </label>
+    <input class="in" type="text" name="city">
+    <label>State: </label>
+    <input class="in" type="text" name="state">
+    <label>ZipCode: </label>
+    <input class="in" type="number" name="zipcode" size="5" maxlength="5">
+    <br>
+    <label>Password: </label>
+    <input class="in" type="text" name="password">
+    <br><br>
+    <button class="btn" name="newaccount">Create Account</button> 
+    </div>
+  
+  
+</div>
+    
+    
+</body>
+</html>

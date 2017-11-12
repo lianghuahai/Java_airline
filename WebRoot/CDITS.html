@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<title>CDITS</title>
+    
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+    
+    .navbar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial;
+    }
+
+    .navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+    
+    #selected{
+    background-color: lightgray;
+    color: black;
+    }
+
+    .content{
+        padding-left: 50px;
+        font-size: 30px;
+    }
+    .in{
+        resize: both;
+        width: 200px;
+        height: 30px;
+    }
+    
+    .btn{
+        width: 100px;
+        height: 50px;
+        font-size: 20px;
+        background-color: darkblue;
+        color: white;
+    }
+
+
+</style>
+</head>
+    
+<body>
+    
+<!-- Navigation Bar -->
+<div class="navbar">
+  <a href="CDITS.html" id="selected">CDITS</a>
+  <a href="register.html">Sign in/Register</a>
+  <a href="#" >My Reservations</a>
+  <a href="#" >My Flight History</a>
+  <a href="#" >Contact Support</a>
+</div>
+    
+<!-- Page content -->
+<div class="content">
+
+    <h2>Search your flight</h2>
+  
+  <div class="search">
+    <div id="date">
+      <label> From: </label>
+      <input class="in" type="date" placeholder="DD MM YYYY">
+
+      <label> To: </label>
+      <input class="in" type="date" placeholder="DD MM YYYY">
+    </div>
+      <br>
+    <div id="location">
+      <label> Departure City: </label>
+      <input class="in" type="text" placeholder="Departure City">
+  
+      <label> Arrival City: </label>
+      <input class="in" type="text" placeholder="Arrival City">
+    </div>
+       <br>
+    <div id="passenger">
+      <label> Adults </label>
+      <input class="in" type="number" placeholder="1">
+ 
+      <label> Kids </label>
+      <input class="in" type="number" placeholder="0">
+    </div>
+       <br>
+    <div id="class">
+      <label> Class </label>
+      <input class="in" type="text" placeholder="Economy">
+      
+    </div>
+      <br>
+    <div>
+      <button class="btn">Search</button>
+    </div>
+  </div>
+</div>
+    
+    
+</body>
+</html>
