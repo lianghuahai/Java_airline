@@ -17,8 +17,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     text-decoration: none;
     }
     
-    #selected{
-    background-color: lightgray;
+    .selected{
+    background-color: #00CED1;
     color: black;
     }
 
@@ -32,14 +32,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
         height: 30px;
     }
     
-    .btn{
-        width: 100px;
-        height: 50px;
-        font-size: 20px;
-        background-color: darkblue;
-        color: white;
-    }
-
+ div.content h2{
+ 	color:#9932CC;
+ 	margin:20px;
+ }
 
 
 
@@ -238,8 +234,38 @@ form:after {
 	margin: 20px 0 35px 15px auto;
 	position: relative;
 	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+	width: 120px;
+}
+#content form input.search {
+	display:block;
+	background: rgb(254,231,154);
+	background: -moz-linear-gradient(top,  rgba(254,231,154,1) 0%, rgba(254,193,81,1) 100%);
+	background: -webkit-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
+	background: -o-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
+	background: linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fee79a', endColorstr='#fec151',GradientType=0 );
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	-ms-border-radius: 30px;
+	-o-border-radius: 30px;
+	border-radius: 30px;
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+	-moz-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+	-ms-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+	-o-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+	box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+	border: 1px solid #D69E31;
+	color: #85592e;
+	cursor: pointer;
+	float: left;
+	font: bold 15px Helvetica, Arial, sans-serif;
+	height: 35px;
+	margin: 20px 0 35px 15px auto;
+	position: relative;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 	width: 180px;
-	left:92px;
+	left:100px
 }
 #content form input[type="submit"]:hover {
 	background: rgb(254,193,81);
@@ -405,12 +431,9 @@ button {
   outline: none;
   overflow: hidden;
   position: absolute;
-  bottom: 30px;
-  left: 50%;
   color: #fff;
   font-size: 18px;
   cursor: pointer;
-  transform: translateX(-50%);
 }
 button:hover:before {
   left: 110%;
