@@ -5,7 +5,14 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <display-name></display-name>
-  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/errorPage.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/errorPage.jsp</location>
+  </error-page>
   <!-- login Servlet  -->
   <servlet>
     <description>This is the description of my J2EE component</description>
@@ -25,10 +32,19 @@
     <servlet-name>RegisterServlet</servlet-name>
     <servlet-class>Web.RegisterServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AirlineServlet</servlet-name>
+    <servlet-class>Web.AirlineServlet</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/registerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AirlineServlet</servlet-name>
+    <url-pattern>/airlineServlet</url-pattern>
   </servlet-mapping>
   
   

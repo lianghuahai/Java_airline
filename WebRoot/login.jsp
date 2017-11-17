@@ -9,6 +9,7 @@
 </head>
 
 <body class="login">
+
    <div class="container">
 	<div id="content">
 		<form action="loginServlet">
