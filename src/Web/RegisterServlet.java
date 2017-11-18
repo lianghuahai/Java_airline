@@ -7,13 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class LoginServlet extends HttpServlet {
-
+public class RegisterServlet extends HttpServlet {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -5637191870874473568L;
+	private static final long serialVersionUID = 2758696100207415197L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
@@ -24,17 +23,12 @@ public class LoginServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
 		
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		System.out.println("loginserlvet");
+		String username = request.getParameter("fname");
+		String password = request.getParameter("lname");
+		System.out.println("registerserlvet");
 		System.out.println(username);
 		System.out.println(password);
-		
-		// login success  go to home page
-		response.sendRedirect("index.jsp"); 
-//		response.setHeader("refresh", "10;url=index.jsp");  refresh website by 10s
-		
-		
+		response.sendRedirect("index.jsp");
 	}
 
 }

@@ -4,36 +4,32 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="./css/mystyle.css">
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
 <body class="login">
-
-
-
-
-
    <div class="container">
-	<section id="content">
-		<form action="CDITS.html">
+	<div id="content">
+		<form action="loginServlet">
 			<h1>Login Form</h1>
 			<div>
-				<input type="text" placeholder="Username" required="" id="username" />
+				<input type="text" name="username" />
 			</div>
 			<div>
-				<input type="password" placeholder="Password" required="" id="password" />
+				<input type="password" name="password" />
 			</div>
 			<div>
 				<input type="submit" value="Log in" />
 				<a href="#">Lost your password?</a>
-				<a href="register.html">Register</a>
+				<a href="register.jsp">Register</a>
 			</div>
 		</form><!-- form -->
 		<div class="button">
 		</div><!-- button -->
-	</section><!-- content -->
+	</div><!-- content -->
 </div><!-- container -->
+
 
 </body>
 </html>

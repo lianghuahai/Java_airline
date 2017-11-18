@@ -3,18 +3,19 @@
 <head>
 <title>CDITS</title>
     	<link rel="stylesheet" type="text/css" href="./css/mystyle.css">
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
     
 <body class="register">
     
 <!-- Navigation Bar -->
 <div class="navbar">
-  <a href="CDITS.html" >CDITS</a>
+  <a href="index.jsp" >CDITS</a>
   <a href="#" id="selected">My Reservations</a>
   <a href="#" >My Flight History</a>
   <a href="#" >Contact Support</a>
-  <a href="login.html" >Sign in</a>
-  <a href="register.html"  class="selected">Register</a>
+  <a href="login.jsp" >Sign in</a>
+  <a href="register.jsp"  class="selected">Register</a>
 </div>
 
 <!-- Page content -->
@@ -22,7 +23,7 @@
 <div class="content">
 	<div class="container">
 	<section id="content">
-		<form action="">
+		<form action="registerServlet">
 			<h1>Register Form</h1>
 			<label>Email: </label>
 		    <input class="in" type="text" name="email">
