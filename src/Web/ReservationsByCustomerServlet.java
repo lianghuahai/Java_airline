@@ -39,9 +39,8 @@ public class ReservationsByCustomerServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User user = request.getSession().getAttribute("existUser");
 		
-		int id = user.getId();
+		int id = Integer.valueOf(request.getParameter("userID"));
 		
 		
 		List<Reservation> reservations = rs.getAllReservationGivenCustomer(id);
