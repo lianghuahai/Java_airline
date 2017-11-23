@@ -291,22 +291,26 @@ public class UserDao {
         java.sql.PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
+            System.out.println("1"+accountNo);
                 conn = JdbcUtil.getConnection();
                 String sql = "SELECT id FROM customer WHERE AccountNo=?";
                 stmt = conn.prepareStatement(sql);
                 stmt.setInt(1, accountNo);
                 rs = stmt.executeQuery();
-                int id = rs.getInt("id");
+                int id=0;
+                if(rs.next()){
+                     id = rs.getInt("id");
+                }
+            System.out.println("2"+id);
                 
-                
-                sql = "DELETE FROM customer WHERE AccountNo = ?;";
+                sql = "DELETE FROM customer WHERE Id = ?";
                 stmt = conn.prepareStatement(sql);
-                stmt.setInt(1, accountNo);
+                stmt.setInt(1, id);
                 stmt.executeUpdate();
                 
-                sql = "DELETE FROM person WHERE id = ?;";
+                sql = "DELETE FROM person WHERE id = ?";
                 stmt = conn.prepareStatement(sql);
-                stmt.setDouble(1, id);
+                stmt.setInt(1, id);
                 stmt.executeUpdate();
 
         } catch (SQLException e) {

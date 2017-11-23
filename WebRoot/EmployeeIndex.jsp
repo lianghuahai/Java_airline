@@ -10,9 +10,11 @@
 </head>
   <body class="register">
 	 <!-- Navigation Bar -->
-	<div class="mystyle-navbar">
+	 <div class="mystyle-navbar">
 		 		 <a href="register.jsp" id="register">Record a reservation</a>
-	   		    <a href="register.jsp" id="register">manage customer</a>
+	   		    <a href="registerCustomer.jsp" id="registerCustomer">RegisterCustomer</a>
+	   		    <a href="javascript:void(0)" id="deleteCustomer" onclick="deleteCustomer()">deleteCustomer</a>
+	   		    
 	   		    <a href="javascript:void(0)" id="mailingList" onclick="mailingList()">mailing list</a>
 	   		    <a href="javascript:void(0)" id="SuggestedFlights" onclick="SuggestedFlights()">flight suggestions for a given customer</a>
 	   		    
@@ -21,6 +23,7 @@
 		 		<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
 				  <a href="helpMenu.jsp" class="help-m">Help Menu</a>
 	</div>
+	
 	<div id="searchByAccount"></div>
 	<div id="aa">
 		
@@ -47,8 +50,6 @@ function openSuggestedFlights(){
 				$('#aa').append(data);
 		}) ;
 }
-
-
 function mailingList(){
 	$.post(
 		"${pageContext.request.contextPath}/getMailListServlet",
@@ -60,6 +61,26 @@ function mailingList(){
 			$('#searchByAccount').empty();
 			$('#searchByAccount').append(data);
 	}) ;
+}
+
+function deleteCustomer(){
+	$('#aa').empty();
+	$('#searchByAccount').empty();
+	$('#searchByAccount').append("<label>Delete Customer By Account Number: </label>: <input class='index-home' type='text' name='accountNo' id='accountNo'><br><button onclick='opendeleteCustomer()'>Delete</button> ");
+	
+}
+function opendeleteCustomer(){
+	alert(1)
+	$.post(
+			"${pageContext.request.contextPath}/deleteCustomerServlet",
+			{
+				'accountNo':$('#accountNo').val()
+			},
+			function(data){
+				alert(data)
+				$('#aa').empty();
+				$('#aa').append(data);
+		}) ;
 }
 	
 	</script>

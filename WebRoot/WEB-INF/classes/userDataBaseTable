@@ -13,7 +13,7 @@ CREATE TABLE `user` (
 
 
 1: deleteUser  dao error
-2:
+2: register customer, didnt store into customer table ,
 
 
 

@@ -238,4 +238,14 @@
     <servlet-name>DeleteEmployeeServlet</servlet-name>
     <url-pattern>/deleteEmployeeServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteCustomerServlet</display-name>
+    <servlet-name>DeleteCustomerServlet</servlet-name>
+    <servlet-class>Web.DeleteCustomerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteCustomerServlet</servlet-name>
+    <url-pattern>/deleteCustomerServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
