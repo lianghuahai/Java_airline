@@ -22,8 +22,9 @@
 	   		    <a href="customerHasSeats.jsp" id="CustomerHasSeats">CustomerHasSeats</a>
 	   		    <a href="flightByGivenAirport.jsp" id="flightByGivenAirport">flightByGivenAirport.jsp</a>
 	  			<span id="loginStatus">welcome ${existUser.firstname }</span>
+		 		<a href="javascript:void(0)" onclick="deleteUser()">deleteUser</a>
 		 		<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
-	 
+	 			
 	  <a href="helpMenu.jsp" class="help-m">Help Menu</a>
 	</div>
 	<div id="aa">
@@ -32,6 +33,21 @@
 	
 	
 <script type="text/javascript">
+function deleteUser(){
+	$('#aa').append("<label>Enter the employee number to be deleted: </label>: <input class='index-home' type='text' name='employeeID' id='employeeID'><br><button onclick='openDelete()'>Delete</button> ");
+	
+}
+function openDelete(){
+	alert($('#employeeID').val())
+	$.post(
+			"${pageContext.request.contextPath}/deleteEmployeeServlet",
+			{
+				'employeeID':$('#employeeID').val()
+			},
+			function(data){
+				alert("Delete Successful!")
+		}) ;
+}
 function MostActiveFlight(){
 	$.post(
 		"${pageContext.request.contextPath}/findMostActiveFlightServlet",

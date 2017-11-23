@@ -116,7 +116,49 @@ function SearchByCustomer(){
 		
 	}) ;
 }
-
+function MostActiveFlight(){
+	$.post(
+		"${pageContext.request.contextPath}/findMostActiveFlightServlet",
+		{
+			
+		},
+		function(data){
+			$('#aa').empty();
+			$('#aa').append(data);
+	}) ;
+}
+function customerMethod(){
+	$.post(
+		"${pageContext.request.contextPath}/findCustomerPormanceServlet",
+		{
+			
+		},
+		function(data){
+			$('#aa').empty();
+			$('#aa').append(data);
+	}) ;
+}
+	function employeeMethod(){
+		$.post(
+			"${pageContext.request.contextPath}/findEmployeePerformanceServlet",
+			{
+				
+			},
+			function(data){
+				$('#aa').empty();
+				$('#aa').append(data);
+		}) ;
+	}
+	function report(){
+		
+		$("#aa").load(
+			"${pageContext.request.contextPath}/listAllFlightServlet",
+			{
+				
+			},
+			function(data){
+		}) ;
+	}
 
 
 </script>

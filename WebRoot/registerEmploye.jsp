@@ -10,7 +10,7 @@
 <body class="register">
     
 <!-- Navigation Bar -->
-<%@ include file="header.jsp"%>
+<%@ include file="managerIndex.jsp"%>
 <div class="content">
 	<div class="container">
 	<section id="content">

@@ -32,7 +32,7 @@ public class FindMostActiveFlightServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -40,12 +40,12 @@ public class FindMostActiveFlightServlet extends HttpServlet {
 	   System.out.println("FindMostActiveFlightServlet");
 	    List<ComprehensiveFlightInfo> FindMostActiveFlight =pi.getMostActiveFlights();
             for (ComprehensiveFlightInfo reservation : FindMostActiveFlight) {
-                response.getWriter().write("<label>"+reservation.getAirlineName()+"</label>,");
-                response.getWriter().write("<label>"+reservation.getFlightNo()+"</label>,");
-                response.getWriter().write(reservation.getDaysOperating()+",");
-                response.getWriter().write(reservation.getMaxLengthOfStay()+",");
-                response.getWriter().write(reservation.getMinLengthOfStay()+",");
-                response.getWriter().write(reservation.getNoOfSeats()+"<br>");
+                response.getWriter().write("<label class='flight-label'><label class='word'>AirlineName:</label>"+reservation.getAirlineName()+"</label>,");
+                response.getWriter().write("<label class='flight-label'><label class='word'>FlightNo:</label>"+reservation.getFlightNo()+"</label>,");
+                response.getWriter().write("<label class='flight-label'><label class='word'>DaysOperating:</label>"+reservation.getDaysOperating()+"</label>,");
+                response.getWriter().write("<label class='flight-label'><label class='word'>MaxLengthOfStay:</label>"+reservation.getMaxLengthOfStay()+"</label>,");
+                response.getWriter().write("<label class='flight-label'><label class='word'>MinLengthOfStay:</label>"+reservation.getMinLengthOfStay()+"</label>,");
+                response.getWriter().write("<label class='flight-label'><label class='word'>NoOfSeats:</label>"+reservation.getNoOfSeats()+"</label><br>");
           }
 	}
 

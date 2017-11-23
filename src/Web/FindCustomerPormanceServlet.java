@@ -31,9 +31,9 @@ public class FindCustomerPormanceServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    List<Reservation> EmployeePerformance =rs.getTopCustomerOfRevenue();
             for (Reservation reservation : EmployeePerformance) {
-                response.getWriter().write(reservation.getFirstName()+",");
-                response.getWriter().write(reservation.getLastName()+",");
-                response.getWriter().write(reservation.getBookingFee()+"<br>");
+                response.getWriter().write("<label class='flight-label'><label class='word'>FirstName:</label>"+reservation.getFirstName()+"</label>");
+                response.getWriter().write("<label class='flight-label'><label class='word'>LastName:</label>"+reservation.getLastName()+"</label>");
+                response.getWriter().write("<label class='flight-label'><label class='word'>BookingFee:</label>"+reservation.getBookingFee()+"</label><br>");
           }
 	}
 

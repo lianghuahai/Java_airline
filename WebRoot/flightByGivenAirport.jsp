@@ -29,7 +29,7 @@
 	  <a href="helpMenu.jsp" class="help-m">Help Menu</a>
 	</div >
 		<div id="date">
-	      <label> Airline Name: </label>
+	      <label> Airport Name: </label>
 	      <input class="index-home" type="text"  name="airportName" id="airportName">
 
 	    </div>

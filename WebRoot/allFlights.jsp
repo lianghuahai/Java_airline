@@ -12,17 +12,21 @@
 			
 
 		<c:forEach var="flightInfo" items="${list}">
-	    		airlineName:	${flightInfo.airlineName}
-	    		flightNo:	${flightInfo.flightNo}
-	    		noOfSeats:	${flightInfo.noOfSeats}
-	    		daysOperating:	${flightInfo.daysOperating}
-	    		minLengthOfStay:	${flightInfo.minLengthOfStay}
-	    		maxLengthOfStay:	${flightInfo.maxLengthOfStay}
-	    		legNo:	${flightInfo.legNo}
-	    		arriveTime:	${flightInfo.arriveTime}
-	    		departTime:	${flightInfo.departTime}
-	    		departAirport:	${flightInfo.departAirport}
-	    		arriveAirport	${flightInfo.arriveAirport}<br>
+		<div class="result-content">
+				 	<div class="single-result" id="single-result">
+ 		<label class="flight-label"><label class="word" id="xxx">airlineName:</label>	${flightInfo.airlineName}</label>
+ 		<label class="flight-label"><label class="word" id="xxx">noOfSeats:</label>	${flightInfo.noOfSeats}</label>
+ 		<label class="flight-label"><label class="word" id="xxx">daysOperating:</label>	${flightInfo.daysOperating}</label>
+ 		<label class="flight-label"><label class="word" id="xxx">minLengthOfStay:</label>	${flightInfo.minLengthOfStay}</label>
+ 		<label class="flight-label"><label class="word" id="xxx">maxLengthOfStay:</label>	${flightInfo.maxLengthOfStay}</label>
+ 		<label class="flight-label"><label class="word" id="xxx">legNo:</label>	${flightInfo.legNo}</label>
+ 		<label class="flight-label"><label class="word" id="xxx">arriveTime:</label>	${flightInfo.arriveTime}</label>
+ 		<label class="flight-label"><label class="word" id="xxx">departTime:</label>	${flightInfo.departTime}</label>
+ 		<label class="flight-label"><label class="word" id="xxx">departAirport:</label>	${flightInfo.departAirport}</label>
+ 		<label class="flight-label"><label class="word" id="xxx">arriveAirport:</label>	${flightInfo.arriveAirport}</label>
+ 		<label class="flight-label"><label class="word" id="xxx">flightNo:</label>	${flightInfo.flightNo}</label>
+	    			<br>
+	    		</div></div>
 	   </c:forEach>
 </body>
 
