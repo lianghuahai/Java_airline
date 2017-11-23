@@ -228,4 +228,14 @@
     <servlet-name>BestSellerFlightsServlet</servlet-name>
     <url-pattern>/BestSellerFlightsServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteEmployeeServlet</display-name>
+    <servlet-name>DeleteEmployeeServlet</servlet-name>
+    <servlet-class>Web.DeleteEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteEmployeeServlet</servlet-name>
+    <url-pattern>/deleteEmployeeServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

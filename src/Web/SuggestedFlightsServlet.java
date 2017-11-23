@@ -38,8 +38,8 @@ public class SuggestedFlightsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//GET ACCOUNT NUMBER FROM REQUEST
-		int accountNo = 0;
-		
+		int accountNo = Integer.valueOf(request.getParameter("accountNo"));
+		System.out.println(accountNo);
 		
 		List<ComprehensiveFlightInfo> suggestedFlights = rs.getRecommendedFlightsOfCustomer(accountNo);
 		String responseStr = "";

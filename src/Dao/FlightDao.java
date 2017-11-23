@@ -20,8 +20,6 @@ public class FlightDao {
         Connection conn = null;
         java.sql.PreparedStatement stmt = null;               
         ResultSet rs = null;
-        flight.setDepartCity("New York");
-        flight.setArriveCity("Los Angeles");
         try {
             conn = JdbcUtil.getConnection();
             String sql = "SELECT *,al.name AS airlinename FROM leg L, airport A, airport B,airline al WHERE L.DepAirportID = A.Id AND L.ArrAirportID = B.Id  AND A.City =? AND B.City =? AND al.id=L.AirlineID  AND TO_DAYS(DATE(L.DepTime))%7 = TO_DAYS(DATE(?))%7";
@@ -60,8 +58,6 @@ public class FlightDao {
         Connection conn = null;
         java.sql.PreparedStatement stmt = null;               
         ResultSet rs = null;
-        flight.setDepartCity("New York");
-        flight.setArriveCity("Los Angeles");
         try {
             conn = JdbcUtil.getConnection();
             String sql = "SELECT L.DepTime AS DepartTime1, L.ArrTime AS ArriveTime1, L2.DepTime AS DepartTime2, L.ArrTime AS ArriveTime2, A.Name AS Name1, B.Name AS Name2, C.Name AS Name3,al1.name AS airlinename1, al2.name AS airlinename2 FROM leg L, Leg L2, airport A, airport B, airport C, airline al1, airline al2 WHERE L.DepAirportID = A.id AND L2.ArrAirportID = B.id AND  A.city = ? AND  B.city = ? AND al1.id=L.AirlineID AND al2.id=L2.AirlineID AND L.ArrAirportID = L2.DepAirportID AND C.id = L.ArrAirportID AND TO_DAYS(DATE(L.DepTime))%7 = TO_DAYS(DATE(?))%7 AND L.ArrTime < L2.DepTime";

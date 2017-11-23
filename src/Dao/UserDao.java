@@ -267,7 +267,7 @@ public class UserDao {
                 stmt.setInt(1, SSN);
                 rs = stmt.executeQuery();
                 int id = rs.getInt("id");
-                
+                System.out.println(id);
                 
                 sql = "DELETE FROM employee WHERE SSN = ?;";
                 stmt = conn.prepareStatement(sql);

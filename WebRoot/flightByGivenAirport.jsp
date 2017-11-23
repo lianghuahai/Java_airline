@@ -14,7 +14,8 @@
 <body class="register" id="aa">
  <div class="mystyle-navbar">
 		 	
-	   		    <a href="registerEmploye.jsp" id="employee" >employee</a>
+	   		     <a href="registerEmploye.jsp" id="employee" >registerEmployee</a>
+		 		<a href="javascript:void(0)" onclick="deleteUser()">deleteEmployee</a>
 	   		    <a href="monthlyReport.jsp" id="monthlyReport" >monthlyReport</a>
 	   		    <a href="javascript:void(0)" id="list_of_allFlights" onclick="report()">list of allFlights</a>
 	   		    <a href="listReservation.jsp" id="list of reservations">list of reservations</a>

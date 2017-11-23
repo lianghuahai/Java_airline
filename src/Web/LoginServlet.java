@@ -37,7 +37,10 @@ public class LoginServlet extends HttpServlet {
     	    if(existUser.getLevel().equals("manager")){
     	        
     	        response.sendRedirect(request.getContextPath()+"/managerIndex.jsp");
-    	    }else{
+    	    }else if(existUser.getLevel().equals("employee")){
+    	    response.sendRedirect(request.getContextPath()+"/EmployeeIndex.jsp");
+    	    }
+    	    else{
     	        response.sendRedirect(request.getContextPath()+"/index.jsp");
     	        
     	    }

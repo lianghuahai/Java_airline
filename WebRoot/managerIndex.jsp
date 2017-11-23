@@ -12,7 +12,8 @@
 	 <!-- Navigation Bar -->
 	<div class="mystyle-navbar">
 		 	
-	   		    <a href="registerEmploye.jsp" id="employee" >employee</a>
+	   		    <a href="registerEmploye.jsp" id="employee" >registerEmployee</a>
+		 		<a href="javascript:void(0)" onclick="deleteUser()">deleteEmployee</a>
 	   		    <a href="monthlyReport.jsp" id="monthlyReport" >monthlyReport</a>
 	   		    <a href="javascript:void(0)" id="list_of_allFlights" onclick="report()">list of allFlights</a>
 	   		    <a href="listReservation.jsp" id="list of reservations">list of reservations</a>
@@ -20,9 +21,8 @@
 	   		    <a href="javascript:void(0)" id="customerP" onclick="customerMethod()">CustomerPerformance</a>
 	   		    <a href="javascript:void(0)" id="MostActiveFlight" onclick="MostActiveFlight()">MostActiveFlight</a>
 	   		    <a href="customerHasSeats.jsp" id="CustomerHasSeats">CustomerHasSeats</a>
-	   		    <a href="flightByGivenAirport.jsp" id="flightByGivenAirport">flightByGivenAirport.jsp</a>
+	   		    <a href="flightByGivenAirport.jsp" id="flightByGivenAirport">flightByGivenAirport</a>
 	  			<span id="loginStatus">welcome ${existUser.firstname }</span>
-		 		<a href="javascript:void(0)" onclick="deleteUser()">deleteUser</a>
 		 		<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
 	 			
 	  <a href="helpMenu.jsp" class="help-m">Help Menu</a>
