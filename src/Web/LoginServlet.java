@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
     	    response.sendRedirect(request.getContextPath()+"/EmployeeIndex.jsp");
     	    }
     	    else{
-    	        response.sendRedirect(request.getContextPath()+"/index.jsp");
+    	        response.sendRedirect(request.getContextPath()+"/CustomerIndex.jsp");
     	        
     	    }
     	}else{
