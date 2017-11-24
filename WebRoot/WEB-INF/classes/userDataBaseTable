@@ -1,0 +1,12 @@
+CREATE TABLE `user` (
+  `email` char(20) NOT NULL,
+  `firstname` char(20) NOT NULL,
+  `password` char(20) NOT NULL,
+  `level` char(20) NOT NULL,
+  `lastname` char(20) NOT NULL,
+  `address` char(20) NOT NULL,
+  `city` char(20) NOT NULL,
+  `state` char(10) NOT NULL,
+  `zipcode` char(10) NOT NULL,
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
