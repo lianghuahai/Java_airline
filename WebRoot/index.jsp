@@ -15,30 +15,30 @@
 	    <h2 >Search your flight</h2>
 	  <div class="search">
 	  <form action="airlineServlet">
-	    <div id="date">
+	    <div id="date" >
 	      <label> From: </label>
-	      <input class="in" type="date" placeholder="DD MM YYYY">
+	      <input class="in" type="date" placeholder="DD MM YYYY" name="departDate">
 	
 	      <label> To: </label>
-	      <input class="in" type="date" placeholder="DD MM YYYY">
+	      <input class="in" type="date" placeholder="DD MM YYYY" name="returnDate">
 	    </div>
 	    <div id="location">
 	      <label> Departure City: </label>
-	      <input class="in" type="text" placeholder="Departure City">
+	      <input class="in" type="text" placeholder="Departure City" name="departCity">
 	  
 	      <label> Arrival City: </label>
-	      <input class="in" type="text" placeholder="Arrival City">
+	      <input class="in" type="text" placeholder="Arrival City" name="arriveCity">
 	    </div>
 	    <div id="passenger">
 	      <label> Adults </label>
-	      <input class="in" type="text" placeholder="1" maxlength="3" >
+	      <input class="in" type="text" placeholder="1" maxlength="3" name="adults">
 	 
 	      <label> Kids </label>
-	      <input class="in" type="text" placeholder="0" maxlength="3" >
+	      <input class="in" type="text" placeholder="0" maxlength="3" name="kids">
 	    </div>
 	    <div id="class">
 	      <label> Class </label>
-	      <input class="in" type="text" placeholder="Economy">
+	      <input class="in" type="text" placeholder="Economy" name="classLevel">
 	    </div>
 	      <br>
 	      <button class="btn" type="submit">Search</button>

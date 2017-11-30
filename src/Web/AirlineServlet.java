@@ -21,6 +21,20 @@ public class AirlineServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
+	        System.out.println("departDate"+request.getParameter("departDate"));
+	        System.out.println("returnDate"+request.getParameter("returnDate"));
+	        System.out.println("departCity"+request.getParameter("departCity"));
+	        System.out.println("arriveCity"+request.getParameter("arriveCity"));
+	        System.out.println("adults"+request.getParameter("adults"));
+	        System.out.println("kids"+request.getParameter("kids"));
+	        System.out.println("classLevel"+request.getAttribute("classLevel"));
+	    
+	        
+	        
+	        
+	    
+	    
+	    
 		AirlineService als = new AirlineService();
 		List<Airline> allAirline = als.findAllAirline();
 		request.setAttribute("airlineList", allAirline);
