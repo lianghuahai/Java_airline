@@ -23,15 +23,15 @@
 <div class="content">
 	<div class="container">
 	<section id="content">
-		<form action="registerServlet">
+		<form action="registerServlet" method="post">
 			<h1>Register Form</h1>
 			<label>Email: </label>
 		    <input class="in" type="text" name="email">
 		    <br>
 		    <label>First Name: </label>
-		    <input class="in" type="text" name="fname">
+		    <input class="in" type="text" name="firstname">
 		    <label>Last name: </label>
-		    <input class="in" type="text" name="lname">
+		    <input class="in" type="text" name="lastname">
 		    <br>
 		    <label>Address: </label>
 		    <input class="in" size="100" type="text" name="address">

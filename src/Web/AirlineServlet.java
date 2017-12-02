@@ -28,7 +28,7 @@ public class AirlineServlet extends HttpServlet {
 	        System.out.println("adults"+request.getParameter("adults"));
 	        System.out.println("kids"+request.getParameter("kids"));
 	        System.out.println("classLevel"+request.getAttribute("classLevel"));
-	    
+	        
 	        
 	        
 	        

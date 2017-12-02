@@ -14,7 +14,7 @@
 	
 	    <h2 >Search your flight</h2>
 	  <div class="search">
-	  <form action="airlineServlet">
+	  <form action="searchFlight()" method="post">
 	    <div id="date" >
 	      <label> From: </label>
 	      <input class="in" type="date" placeholder="DD MM YYYY" name="departDate">
@@ -27,7 +27,7 @@
 	      <input class="in" type="text" placeholder="Departure City" name="departCity">
 	  
 	      <label> Arrival City: </label>
-	      <input class="in" type="text" placeholder="Arrival City" name="arriveCity">
+	      <input  class="in" type="text" placeholder="Arrival City" name="arriveCity">
 	    </div>
 	    <div id="passenger">
 	      <label> Adults </label>
@@ -45,11 +45,30 @@
 	       </form>
 	  </div>
 	</div>
+	
 <script type="text/javascript">
 function searchFlight(){
+	//airlineServlet
 	
 }
 </script>>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 </body>
 </html>

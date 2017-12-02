@@ -1,15 +1,19 @@
 package Web;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.jsp.PageContext;
+
+import org.apache.commons.beanutils.BeanUtils;
+
+import Bean.loginUser;
 
 public class LoginServlet extends HttpServlet {
-
-
 	/**
 	 * 
 	 */
@@ -23,13 +27,18 @@ public class LoginServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
 		System.out.println("loginserlvet");
-		System.out.println(username);
-		System.out.println(password);
-		
-		// login success  go to home page
-		response.sendRedirect("index.jsp"); 
-	}
+		loginUser lg = new loginUser();
+	try {
+	    //This method atomatic store information to bean class
+            BeanUtils.populate(lg, request.getParameterMap());
+            System.out.println(lg);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+	// login success  go to home page
+	response.sendRedirect("index.jsp");  
+     }
 }

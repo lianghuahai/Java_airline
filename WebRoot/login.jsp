@@ -12,7 +12,7 @@
 
    <div class="container">
 	<div id="content">
-		<form action="loginServlet">
+		<form action="${pageContext.request.contextPath}/loginServlet" method="post">
 			<h1>Login Form</h1>
 			<div>
 				<input type="text" name="username" />
