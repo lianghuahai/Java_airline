@@ -6,8 +6,8 @@ import Bean.Airline;
 import Dao.AirlineDao;
 
 public class AirlineService {
+        AirlineDao ald = new AirlineDao();
 	public List<Airline> findAllAirline(){
-		AirlineDao ald = new AirlineDao();
 		return ald.findAllAirline();
 	}
 }

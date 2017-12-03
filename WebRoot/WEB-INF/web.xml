@@ -58,4 +58,14 @@
     <servlet-name>CheckEmailServlet</servlet-name>
     <url-pattern>/checkEmailServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchFlightServlet</display-name>
+    <servlet-name>SearchFlightServlet</servlet-name>
+    <servlet-class>Web.SearchFlightServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchFlightServlet</servlet-name>
+    <url-pattern>/searchFlightServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

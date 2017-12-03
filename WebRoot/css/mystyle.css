@@ -2,13 +2,13 @@
 
 html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     
-    .navbar {
+    .mystyle-navbar {
     overflow: hidden;
     background-color: #333;
     font-family: Arial;
     }
 
-    .navbar a {
+    .mystyle-navbar a {
     float: left;
     font-size: 16px;
     color: white;
@@ -16,7 +16,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     padding: 14px 16px;
     text-decoration: none;
     }
-    .navbar span {
+    .mystyle-navbar span {
     float: left;
     font-size: 16px;
     color: #73AD21;
@@ -39,7 +39,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     }
     .in{
         resize: both;
-        width: 200px;
+        width: 180px;
         height: 38px;
     }
     
@@ -64,6 +64,7 @@ body.login {
 	margin: 0 auto;
 	padding: 250px;
 	position: relative;
+	
 }
 h1{ font-size:28px;}
 h2{ font-size:26px;}
@@ -202,7 +203,7 @@ form:after {
 	font: 13px Helvetica, Arial, sans-serif;
 	margin: 0 0 10px;
 	padding: 15px 10px 15px 40px;
-	width: 80%;
+	width: 70%;
 }
 #content form input[type="text"]:focus,
 #content form input[type="password"]:focus {
@@ -357,9 +358,8 @@ form:after {
 }
 
 body.register {
-  background: #616161 url(https://images.unsplash.com/photo-1452716726610-30ed68426a6b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=177c2914fe84d20069f207e27632acc9) center/cover no-repeat;
+  background: #616161 url(https://images.unsplash.com/photo-1452716726610-30ed68426a6b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=177c2914fe84d20069f207e27632acc9) center/cover repeat;
   height: 100vh;
-  overflow: hidden;
   color: #fff;
   font-family: Roboto;
 }
@@ -415,6 +415,28 @@ div.containerForm{
 
 input {
   background: rgba(255, 255, 255, 0.15);
+  width: 100%;
+  padding: 8px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  color: #fff;
+  font-size: 20px;
+}
+select {
+  background: rgba(255, 255, 255, 0.15);
+  width: 100%;
+  padding: 8px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  color: #fff;
+  font-size: 20px;
+}
+option {
+  background: grey;
   width: 100%;
   padding: 8px;
   margin: 15px 0;
@@ -552,8 +574,32 @@ div.registerForm{
     border: 3px solid #73AD21;
 }
 
-
-
-
-
+div.single-result{
+	border-radius: 1%;
+	  border: 1px solid black;
+	  box-shadow: 0 1px 8px 0 rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12);
+	  padding: 10px 20px;
+	  margin: 15px auto;
+}
+label.flight-label{
+	font-size:20px;
+	color:white;
+}
+div.col-md-6{
+	z-index:3;
+	display:block;
+	top: 15px;
+	left:-50px;
+}
+label#label-style{
+	margin-left:500px;
+	z-index:5;
+	left:-50px;
+	font-size:20px;
+}
+body.login,register{
+	-moz-background-size:100% 100%;  
+    background-size:100% 100%; 
+background-attachment: fixed;
+}
 

@@ -2,56 +2,87 @@
 <html>
 <head>
 <title>CDITS</title>
-     <link rel="stylesheet" type="text/css" href="./css/mystyle.css"> 
      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 	  <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+	  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+     <link rel="stylesheet" type="text/css" href="./css/mystyle.css"> 
 </head>
 <body class="register">
 
  <%@ include file="header.jsp"%>
+		<!--left pane Search  -->
+			<div class="content">
+			    <h2 >Search your flight</h2>
+			  <div class="search">
+			  <form action="searchFlightServlet" method="post" accept-charset=utf-8>
+			    <div id="date" >
+			      <label> From: </label>
+			      <input class="in" type="date" placeholder="DD MM YYYY" name="departDate" id="departDate">
+			
+			      <label> To: </label>
+			      <input class="in" type="date" placeholder="DD MM YYYY" name="returnDate" id="returnDate">
+			    </div>
+			    <div id="location">
+			      <label> Departure City: </label>
+			      <input class="in" type="text" placeholder="Departure City" name="departCity" id="departCity">
+			  
+			      <label> Arrival City: </label>
+			      <input  class="in" type="text" placeholder="Arrival City" name="arriveCity" id="arriveCity">
+			    </div>
+			    <div id="passenger">
+			      <label> Adults </label>
+			      <input class="in" type="text"  maxlength="3" name="adults" id="adults">
+			 
+			      <label> Kids </label>
+			      <input class="in" type="text" maxlength="3" name="kids" id="kids">
+			    </div>
+			    <div id="class">
+			      <label> Class </label>
+			      <!-- <input class="in" type="text" placeholder="Economy" name="classLevel" id="classLevel"> -->
+					    <select class="in"  name="classLevel" id="classLevel">
+						  <option class="in" value="economy" selected id="economy">Economy</option>
+						  <option class="in" value="bussiness"  id="bussiness">Bussiness</option>
+						  <option class="in" value="first"  id="first">First</option>
+						</select>
+			    </div>
+			      <br>
+			      <button class="btn" type="submit" onclick="return checkNull()">Search</button>
+			       </form>
+			  </div>
+			</div>
+		
+		
+
+
+    
+    
  
- <!-- Page content -->
-	<div class="content">
-	
-	    <h2 >Search your flight</h2>
-	  <div class="search">
-	  <form action="searchFlight()" method="post" accept-charset=utf-8>
-	    <div id="date" >
-	      <label> From: </label>
-	      <input class="in" type="date" placeholder="DD MM YYYY" name="departDate">
-	
-	      <label> To: </label>
-	      <input class="in" type="date" placeholder="DD MM YYYY" name="returnDate">
-	    </div>
-	    <div id="location">
-	      <label> Departure City: </label>
-	      <input class="in" type="text" placeholder="Departure City" name="departCity">
-	  
-	      <label> Arrival City: </label>
-	      <input  class="in" type="text" placeholder="Arrival City" name="arriveCity">
-	    </div>
-	    <div id="passenger">
-	      <label> Adults </label>
-	      <input class="in" type="text" placeholder="1" maxlength="3" name="adults">
-	 
-	      <label> Kids </label>
-	      <input class="in" type="text" placeholder="0" maxlength="3" name="kids">
-	    </div>
-	    <div id="class">
-	      <label> Class </label>
-	      <input class="in" type="text" placeholder="Economy" name="classLevel">
-	    </div>
-	      <br>
-	      <button class="btn" type="submit">Search</button>
-	       </form>
-	  </div>
-	</div>
-	
+<!-- Show result -->
 <script type="text/javascript">
-function searchFlight(){
-	//airlineServlet
-	
-}
+function checkNull()  
+{  
+     var num=0;  
+     var str="";  
+     $("input.in").each(function(n){  
+          if($(this).val()=="")  
+          {  
+               num++;  
+               str+=$(this).attr("id")+"\r\r can't be empty!\n";  
+          }  
+     });  
+     
+     if(num>0)  
+     {  
+          alert(str);  
+          return false;  
+     }  
+     else  
+     {  
+          return true;  
+     }  
+}  
 </script>>
     
     

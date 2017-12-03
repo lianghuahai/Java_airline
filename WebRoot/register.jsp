@@ -21,7 +21,7 @@
 		    <br>
 		    <label>First Name: </label>
 		    <input class="in" type="text" name="firstname"  id="firstname">
-		    <label>Last name: </label>
+		    <br><label>Last name: </label>
 		    <input class="in" type="text" name="lastname" id="lastname">
 		    <br>
 		    <label>Address: </label>

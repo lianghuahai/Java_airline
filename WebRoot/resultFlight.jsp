@@ -12,6 +12,6 @@
 	  
 	  <c:forEach var="item" items="${requestScope.airlineList}">
      	 <h1>${item.name}</h1> <br>
-	</c:forEach> 	
+	  </c:forEach> 	
   </body>
 </html>

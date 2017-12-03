@@ -8,7 +8,7 @@
 </head>
   
 	 <!-- Navigation Bar -->
-	<div class="navbar">
+	<div class="mystyle-navbar">
 	  <a href="index.jsp" class="selected" id="index">CDITS</a>
 	  <a href="#" >My Reservations</a>
 	  <a href="autions.jsp" id="autions">Autions</a>
@@ -24,7 +24,6 @@
 	 	<a href="login.jsp" id="login">Sign in</a>
 	  </c:if>
 	</div>
-	<hr>
 	
 	
 </html>

@@ -14,6 +14,12 @@ public class Flight {
     public String getDepartDate() {
         return departDate;
     }
+    @Override
+    public String toString() {
+        return "Flight [departDate=" + departDate + ", returnDate=" + returnDate + ", departCity="
+                + departCity + ", arriveCity=" + arriveCity + ", adults=" + adults + ", kids=" + kids
+                + ", classLevel=" + classLevel + "]";
+    }
     public void setDepartDate(String departDate) {
         this.departDate = departDate;
     }
