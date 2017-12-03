@@ -11,14 +11,17 @@ import javax.servlet.jsp.PageContext;
 
 import org.apache.commons.beanutils.BeanUtils;
 
+import Bean.User;
 import Bean.loginUser;
+import Dao.UserDao;
+import Service.UserService;
 
 public class LoginServlet extends HttpServlet {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -5637191870874473568L;
-
+	private UserService us = new UserService();
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
 		doPost(request, response);
@@ -27,18 +30,17 @@ public class LoginServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
-		System.out.println("loginserlvet");
-		loginUser lg = new loginUser();
-	try {
-	    //This method atomatic store information to bean class
-            BeanUtils.populate(lg, request.getParameterMap());
-            System.out.println(lg);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-	// login success  go to home page
-	response.sendRedirect("index.jsp");  
+	    System.out.println("loginserlvet");
+    	//check login status
+    	User existUser  =us.checkLogin(request.getParameter("email"),request.getParameter("password"));
+    	
+    	if(existUser!=null){
+    	    request.getSession().setAttribute("existUser", existUser);
+    	    response.sendRedirect(request.getContextPath()+"/index.jsp");  
+    	}else{
+    	    response.sendRedirect(request.getContextPath()+"/login.jsp");  
+    	}
+////	
+	
      }
 }

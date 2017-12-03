@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -9,12 +9,22 @@
   
 	 <!-- Navigation Bar -->
 	<div class="navbar">
-	  <a href="index.jsp" class="selected">CDITS</a>
+	  <a href="index.jsp" class="selected" id="index">CDITS</a>
 	  <a href="#" >My Reservations</a>
+	  <a href="autions.jsp" id="autions">Autions</a>
 	  <a href="#" >My Flight History</a>
 	  <a href="#" >Contact Support</a>
-	  <a href="login.jsp">Sign in</a>
-	  <a href="register.jsp">Register</a>
+	  <a href="register.jsp" id="register">Register</a>
+	  
+	  <c:if test="${not empty existUser}">
+	  	<span id="loginStatus">welcome ${existUser.firstname }</span>
+	 	<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
+	  </c:if>
+	  <c:if test="${empty existUser}">
+	 	<a href="login.jsp" id="login">Sign in</a>
+	  </c:if>
 	</div>
 	<hr>
+	
+	
 </html>

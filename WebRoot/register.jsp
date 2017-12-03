@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>CDITS</title>
+    	  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     	<link rel="stylesheet" type="text/css" href="./css/mystyle.css">
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -9,47 +10,37 @@
 <body class="register">
     
 <!-- Navigation Bar -->
-<div class="navbar">
-  <a href="index.jsp" >CDITS</a>
-  <a href="#" id="selected">My Reservations</a>
-  <a href="#" >My Flight History</a>
-  <a href="#" >Contact Support</a>
-  <a href="login.jsp" >Sign in</a>
-  <a href="register.jsp"  class="selected">Register</a>
-</div>
-
-<!-- Page content -->
-<hr>
+<%@ include file="header.jsp"%>
 <div class="content">
 	<div class="container">
 	<section id="content">
-		<form action="registerServlet" method="post">
+		<form action="registerServlet" method="post" accept-charset=utf-8 >
 			<h1>Register Form</h1>
 			<label>Email: </label>
-		    <input class="in" type="text" name="email">
+		    <input class="in" type="text" name="email" id="email"> <span id="emailStatus"></span>
 		    <br>
 		    <label>First Name: </label>
-		    <input class="in" type="text" name="firstname">
+		    <input class="in" type="text" name="firstname"  id="firstname">
 		    <label>Last name: </label>
-		    <input class="in" type="text" name="lastname">
+		    <input class="in" type="text" name="lastname" id="lastname">
 		    <br>
 		    <label>Address: </label>
-		    <input class="in" size="100" type="text" name="address">
+		    <input class="in" size="100" type="text" name="address" id="address">
 		    <br>
 		    <label>City: </label>
-		    <input class="in" type="text" name="city">
+		    <input class="in" type="text" name="city" id="city">
 		    <br>
 		    <label>State: </label>
-		    <input class="in" type="text" name="state">
+		    <input class="in" type="text" name="state" id="state">
 		    <br>
 		    <label>ZipCode: </label>
-		    <input class="in" type="text" name="zipcode" size="5" maxlength="5">
+		    <input class="in" type="text" name="zipcode" id="zipcode" size="5" maxlength="5">
 		    <br>
 		    <label>Password: </label>
-		    <input class="in" type="text" name="password">
+		    <input class="in" type="text" name="password" id="password">
 		
 			<div>
-				<input class="search" type="submit" value="Register" />
+				<input id="sub" class="search" type="submit" value="Register" onclick="return checkNull()"/>
 			</div>
 		</form><!-- form -->
 		<div class="button">
@@ -57,7 +48,52 @@
 	</section><!-- content -->
   
 </div></div>
-
+	<script type="text/javascript">
+	function checkNull()  
+	{  
+	     var num=0;  
+	     var str="";  
+	     $("input[type$='text']").each(function(n){  
+	          if($(this).val()=="")  
+	          {  
+	               num++;  
+	               str+=$(this).attr("id")+"\r\r can't be empty!\n";  
+	          }  
+	     });  
+	     if(num>0)  
+	     {  
+	          alert(str);  
+	          return false;  
+	     }  
+	     else  
+	     {  
+	          return true;  
+	     }  
+	}  
+		$("#email").blur(function(){
+	        $.post(
+	        	"${pageContext.request.contextPath}/checkEmailServlet",
+	        	{
+	        		"email":$("#email").val()
+	        	},
+	        	function(data){
+	        		/* $("#emailStatus").innerHTML="" */
+	        		var flag = data;
+	        		if(flag=="false"){
+	        			$("#emailStatus").text("x");
+	        			$("#emailStatus").css({'color':'red'});
+	        			$("#sub").attr({'onclick':'return false'});
+	        		}else{
+	        			$("#emailStatus").text("v");
+	        			$("#emailStatus").css({'color':'green'});
+	        			$("#sub").attr({'onclick':'return true'});
+	        		}
+	        	}
+	        )
+	        
+	    });
+	
+	</script>
     
 </body>
 </html>
