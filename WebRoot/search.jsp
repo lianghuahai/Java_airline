@@ -63,9 +63,11 @@
 				<div class="result-content">
 				 	<div class="single-result" id="single-result">
 					 	<div class="flight-div-time">
+					 	<div id="label-style-stop">
+					 	<span>Stop:${flightInfo.stop}</span>
+					 	</div>
 					 		<label class="flight-label" >DepartTime: <span>${flightInfo.departTime}</span></label>
 					 		<label class="flight-label" id="label-style">ReturnTime: <span>${flightInfo.returnTime}</span></label>
-					 	
 					 	</div>
 					 	
 					 	<div class="flight-div-city">
@@ -75,7 +77,6 @@
 					 	<div class="flight-label-stopPrice">
 					 		<label class="flight-label">Airline: ${flightInfo.airline}</label>
 					 		<label class="flight-label" id="label-style">TicketPrice: ${flightInfo.ticketPrice}</label>
-					 		<label class="flight-label" id="label-style">Stop: ${flightInfo.stop}</label>
 				 		</div>
 				 		<div class="flight-div-time">
 					 		<a href="#" id="selectFlight">Select</a>

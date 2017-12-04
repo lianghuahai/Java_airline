@@ -58,10 +58,10 @@ public class SearchFlightServlet extends HttpServlet {
                     FlightInformaiton flightbean = new FlightInformaiton();
                     flightbean.setDepartAirport("nddddddddddy");
                     flightbean.setArriveAirport("aaaaaaaaaaaaaala");
-                    flightbean.setStop("1");
+                    flightbean.setStop("10");
                     flightbean.setTicketPrice(999);
                     flightbean.setDepartTime("2017-11-01");
-                    flightbean.setReturnTime("2017-11-01");
+                    flightbean.setReturnTime("2017-11-01aaaaaaaaa");
                     resultList.add(flightbean);
                 }
                 request.setAttribute("resultList", resultList);

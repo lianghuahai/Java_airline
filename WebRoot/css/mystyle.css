@@ -602,6 +602,13 @@ label#label-style{
 button #selectFlight{
 	position:relative;right:0;bottom:0;
 }
-
+#label-style-stop{
+	left:300px;
+	z-index:99;
+	position:absolute;
+	display:inline;
+	margin-left: 200px auto;
+	width:50px;
+}
 
 
