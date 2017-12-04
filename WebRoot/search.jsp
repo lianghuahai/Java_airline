@@ -62,13 +62,24 @@
 			<c:forEach var="flightInfo" items="${requestScope.resultList}">
 				<div class="result-content">
 				 	<div class="single-result" id="single-result">
-				 		<label class="flight-label">DepartTime:${flightInfo.departTime}</label>
-				 		<label class="flight-label" id="label-style">ReturnTime:${flightInfo.returnTime}</label><br>
-				 		<label class="flight-label">DepartAirport:${flightInfo.departAirport}</label>
-				 		<label class="flight-label">ArriveAirport:${flightInfo.arriveAirport}</label>
-				 		<label class="flight-label">Airline:${flightInfo.airline}</label>
-				 		<label class="flight-label" id="label-style">Stop:${flightInfo.stop}</label>
-				 		<label class="flight-label" id="label-style">TicketPrice:${flightInfo.ticketPrice}</label>
+					 	<div class="flight-div-time">
+					 		<label class="flight-label" >DepartTime: <span>${flightInfo.departTime}</span></label>
+					 		<label class="flight-label" id="label-style">ReturnTime: <span>${flightInfo.returnTime}</span></label>
+					 	
+					 	</div>
+					 	
+					 	<div class="flight-div-city">
+					 		<label class="flight-label">DepartAirport: ${flightInfo.departAirport}</label>
+					 		<label class="flight-label" id="label-style">ArriveAirport: ${flightInfo.arriveAirport}</label>
+					 	</div>
+					 	<div class="flight-label-stopPrice">
+					 		<label class="flight-label">Airline: ${flightInfo.airline}</label>
+					 		<label class="flight-label" id="label-style">TicketPrice: ${flightInfo.ticketPrice}</label>
+					 		<label class="flight-label" id="label-style">Stop: ${flightInfo.stop}</label>
+				 		</div>
+				 		<div class="flight-div-time">
+					 		<a href="#" id="selectFlight">Select</a>
+					 	</div>
 				 	</div>
 				</div>
 			</c:forEach>

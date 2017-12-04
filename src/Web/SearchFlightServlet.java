@@ -56,8 +56,8 @@ public class SearchFlightServlet extends HttpServlet {
                 List <FlightInformaiton>resultList = new ArrayList<FlightInformaiton>();
                 for (int i=0;i<30;i++) {
                     FlightInformaiton flightbean = new FlightInformaiton();
-                    flightbean.setDepartAirport("ny");
-                    flightbean.setArriveAirport("la");
+                    flightbean.setDepartAirport("nddddddddddy");
+                    flightbean.setArriveAirport("aaaaaaaaaaaaaala");
                     flightbean.setStop("1");
                     flightbean.setTicketPrice(999);
                     flightbean.setDepartTime("2017-11-01");
