@@ -13,7 +13,7 @@ public class User {
 	        private String startDate;
 	        private int SSN;
 	        private int isManager;
-	        private int hourlyRate;
+	        private double hourlyRate;
 	        
 	public String getEmail() {
         return email;
@@ -122,11 +122,11 @@ public class User {
 		this.isManager = isManager;
 	}
 
-	public int getHourlyRate() {
+	public double getHourlyRate() {
 		return hourlyRate;
 	}
 
-	public void setHourlyRate(int hourlyRate) {
+	public void setHourlyRate(double hourlyRate) {
 		this.hourlyRate = hourlyRate;
 	}
 

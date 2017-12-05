@@ -182,4 +182,66 @@ public class UserDao {
                 JdbcUtil.release(conn, stmt, rs);
         }               
     }
+    
+    public User getEmployeeBySSN(int SSN){
+    	Connection conn = null;
+        java.sql.PreparedStatement stmt = null;
+        ResultSet rs = null;
+        User user = null;
+        try {
+                conn = JdbcUtil.getConnection();
+                String sql = "SELECT * FROM employee WHERE SSN=?";
+                stmt = conn.prepareStatement(sql);
+                stmt.setInt(1, SSN);
+                rs = stmt.executeQuery();
+                if(rs.next()){
+                     user = new User();
+                     user.setSSN(rs.getInt("SSN"));
+                     user.setIsManager(rs.getInt("IsManager"));
+                     user.setHourlyRate(rs.getDouble("HourlyRate"));  
+                }
+        } catch (SQLException e) {
+               throw new RuntimeException();
+        }finally{
+                JdbcUtil.release(conn, stmt, rs);
+                return user;
+        }             
+    }
+    
+    public void updateEmployeeInfo(User user){
+    	Connection conn = null;
+        java.sql.PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+                conn = JdbcUtil.getConnection();
+                String sql = "UPDATE employee SET HourlyRate = ?, IsManager = ? WHERE SSN = ?";
+                stmt = conn.prepareStatement(sql);
+                stmt.setDouble(1, user.getHourlyRate());
+                stmt.setInt(2, user.getIsManager());
+                stmt.executeUpdate();
+
+        } catch (SQLException e) {
+               throw new RuntimeException();
+        }finally{
+                JdbcUtil.release(conn, stmt, rs);
+        }             
+    }
+    
+    public void deleteEmployee(int SSN){
+    	Connection conn = null;
+        java.sql.PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+                conn = JdbcUtil.getConnection();
+                String sql = "DELETE FROM employee WHERE SSN = ?;";
+                stmt = conn.prepareStatement(sql);
+                stmt.setDouble(1, SSN);
+                stmt.executeUpdate();
+
+        } catch (SQLException e) {
+               throw new RuntimeException();
+        }finally{
+                JdbcUtil.release(conn, stmt, rs);
+        }             
+    }
 }
