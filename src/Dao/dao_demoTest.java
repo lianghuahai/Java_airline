@@ -21,6 +21,50 @@ import Utils.JdbcUtil;
  * */
 public class dao_demoTest {
     @Test
+    public void findOnewayFightOneWay() {
+          Connection conn = null;
+          List <FlightInformaiton> existFlightList = new ArrayList<FlightInformaiton>();
+          java.sql.PreparedStatement stmt = null;               
+          ResultSet rs = null;
+         Flight flight = new Flight(); 
+          flight.setDepartCity("New York");
+          flight.setArriveCity("Los Angeles");
+          try {
+              conn = JdbcUtil.getConnection();
+              String sql = "SELECT *, al1.name AS airlinename, al2.name AS airlinename  FROM leg L, Leg L2, airport A, airport B, airline al1, airline al2  WHERE L.DepAirportID = A.id AND L2.ArrAirportID = B.id  AND  A.city = ? AND  B.city = ? AND al1.id=L.AirlineID AND al2.id=L2.AirlineID  AND L.ArrAirportID = L2.DepAirportID AND TO_DAYS(DATE(L.DepTime))%7 = TO_DAYS(DATE('?'))%7 AND L.ArrTime < L2.DepTime";
+              stmt = conn.prepareStatement(sql);
+              stmt.setString(1, flight.getDepartCity());
+              stmt.setString(2, flight.getArriveCity());
+              stmt.setString(3, "2011-01-05");
+              System.out.println(flight);
+              System.out.println(sql);
+              rs = stmt.executeQuery();
+              
+              //set up existFlight
+              while (rs.next()) {
+                  System.out.println(rs.getString("Name"));
+                  FlightInformaiton f = new FlightInformaiton();
+                  f.getAirline().add(rs.getString("airlineName"));
+                  f.setDepartTime(rs.getString("DepTime"));
+                  f.setReturnTime(rs.getString("ArrTime"));
+                  f.setDepartAirport(rs.getString(9));
+                  f.setArriveAirport(rs.getString(13));
+                  f.setTicketPrice(999.00);
+                  //set data to existFlightList
+                  existFlightList.add(f);
+             }
+
+          } catch (SQLException e) {
+                 throw new RuntimeException();
+          }finally{
+                  JdbcUtil.release(conn, stmt, rs);
+          } 
+    }
+    
+    
+    
+    
+    @Test
     public void findOnewayFight() {
           Connection conn = null;
           List <FlightInformaiton> existFlightList = new ArrayList<FlightInformaiton>();
@@ -44,7 +88,7 @@ public class dao_demoTest {
                   while (rs.next()) {
                       System.out.println(rs.getString("Name"));
                       FlightInformaiton f = new FlightInformaiton();
-                      f.setAirline(rs.getString("airlineName"));
+//                      f.setAirline(rs.getString("airlineName"));
                       f.setDepartTime(rs.getString("DepTime"));
                       f.setReturnTime(rs.getString("ArrTime"));
                       f.setDepartAirport(rs.getString(9));

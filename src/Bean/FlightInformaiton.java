@@ -1,12 +1,29 @@
 package Bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FlightInformaiton {
     private String departTime;
     private String returnTime;
     private String departAirport;
     private String arriveAirport;
-    private String airline;
+    private List<String> airline = new ArrayList<String>();
     private String stop;
+    public List<String> getTransferAirport() {
+        return transferAirport;
+    }
+    public void setTransferAirport(List<String> transferAirport) {
+        this.transferAirport = transferAirport;
+    }
+    public void setAirline(List<String> airline) {
+        this.airline = airline;
+    }
+    public void setTicketPrice(double ticketPrice) {
+        this.ticketPrice = ticketPrice;
+    }
+    private List<String> transferAirport= new ArrayList<String>();
+   
     private double ticketPrice;
     private String departCity;
     private String arriveCity;
@@ -48,12 +65,10 @@ public String getDepartCity() {
     public void setArriveAirport(String arriveAirport) {
         this.arriveAirport = arriveAirport;
     }
-    public String getAirline() {
+    public List<String> getAirline() {
         return airline;
     }
-    public void setAirline(String airline) {
-        this.airline = airline;
-    }
+    
     public String getStop() {
         return stop;
     }

@@ -11,7 +11,7 @@ public class FlightService {
     FlightDao fd =  new FlightDao();
     public List <FlightInformaiton> findOnewayFight(Flight flight) {
         List <FlightInformaiton> totalList = new ArrayList<FlightInformaiton>();
-        fd.findOnewayFightNoStop(flight);
+        totalList=fd.findOnewayFightNoStop(flight);
         return totalList;
     }
 
