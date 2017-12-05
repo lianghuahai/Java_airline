@@ -21,7 +21,7 @@ public class UserDao {
 			conn = JdbcUtil.getConnection();
 			stmt = conn.createStatement();
 			
-			String sql = "select * from user";
+			String sql = "select * from person";
 			//select *from user where username='zhangsan' and password = '123456'
 			stmt.execute(sql);
 			rs = stmt.executeQuery(sql);
@@ -50,7 +50,7 @@ public class UserDao {
                         conn = JdbcUtil.getConnection();
                         stmt = conn.createStatement();
                         
-                        String sql = "select * from user";
+                        String sql = "select * from person";
                         //select *from user where username='zhangsan' and password = '123456'
                         stmt.execute(sql);
                         rs = stmt.executeQuery(sql);
@@ -76,7 +76,7 @@ public class UserDao {
         
         try {
                 conn = JdbcUtil.getConnection();
-                String sql = "INSERT INTO user (email,firstname,password,level,lastname,address,city,state,zipcode)VALUES (?,?,?,?,?,?,?,?,?)";
+                String sql = "INSERT INTO person (email,firstname,password,level,lastname,address,city,state,zipcode)VALUES (?,?,?,?,?,?,?,?,?)";
                 stmt = conn.prepareStatement(sql);
                 stmt.setString(1, user.getEmail());
                 stmt.setString(2, user.getFirstname());
@@ -105,7 +105,7 @@ public class UserDao {
                 conn = JdbcUtil.getConnection();
                 stmt = conn.createStatement();
                 
-                String sql = "select * from user where email='"+email+"'";
+                String sql = "select * from person where email='"+email+"'";
                 stmt.execute(sql);
                 rs = stmt.executeQuery(sql);
                

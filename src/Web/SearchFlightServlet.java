@@ -65,6 +65,9 @@ public class SearchFlightServlet extends HttpServlet {
 //                    flightbean.setReturnTime("2017-11-01aaaaaaaaa");
 //                    resultList.add(flightbean);
 //                }
+                for(FlightInformaiton f: resultList){
+                   System.out.println(f.getAirline());
+            }
                 request.setAttribute("resultList", resultList);
                 request.getRequestDispatcher("/search.jsp").forward(request, response);
 	    
