@@ -25,4 +25,9 @@ public class UserService {
         }
         return null;
     }
+    
+    public void addEmployee(User user){
+    	register(user);
+    	
+    }
 }

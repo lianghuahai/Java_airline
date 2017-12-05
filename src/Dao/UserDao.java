@@ -76,7 +76,12 @@ public class UserDao {
         
         try {
                 conn = JdbcUtil.getConnection();
-                String sql = "INSERT INTO person (email,firstname,password,level,lastname,address,city,state,zipcode)VALUES (?,?,?,?,?,?,?,?,?)";
+                String sql = "SELECT MAX(Id) AS maxId FROM person";
+                stmt = conn.prepareStatement(sql);
+                rs = stmt.executeQuery();
+                int previousMaxId = rs.getInt("maxId");
+                
+                sql = "INSERT INTO person (email,firstname,password,level,lastname,address,city,state,zipcode, id)VALUES (?,?,?,?,?,?,?,?,?,?)";
                 stmt = conn.prepareStatement(sql);
                 stmt.setString(1, user.getEmail());
                 stmt.setString(2, user.getFirstname());
@@ -87,6 +92,7 @@ public class UserDao {
                 stmt.setString(7, user.getCity());
                 stmt.setString(8, user.getState());
                 stmt.setString(9, user.getZipcode());
+                stmt.setInt(10, previousMaxId+1);;
                 stmt.executeUpdate();
 
         } catch (SQLException e) {
