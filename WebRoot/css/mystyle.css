@@ -37,10 +37,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
         padding-left: 50px;
         font-size: 30px;
     }
-    .in{
+    .index-home{
         resize: both;
         width: 180px;
-        height: 38px;
+        height: 40px;
     }
     
  div.content h2{
@@ -413,9 +413,8 @@ div.containerForm{
   left: 0;
 }
 
-input {
+input.index-home {
   background: rgba(255, 255, 255, 0.15);
-  width: 100%;
   padding: 8px;
   margin: 15px 0;
   border: none;
@@ -591,6 +590,7 @@ div.col-md-6{
 	top: 15px;
 	left:-50px;
 }
+
 div.flight-div-time,flight-div-city,flight-label-stopPrice{
 	diplay:block;
 	font-size:20px;
@@ -603,12 +603,37 @@ button #selectFlight{
 	position:relative;right:0;bottom:0;
 }
 #label-style-stop{
-	left:300px;
+	left:350px;
 	z-index:99;
 	position:absolute;
 	display:inline;
 	margin-left: 200px auto;
 	width:50px;
 }
+div.col-md-2{
+	display:inline;
+	top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

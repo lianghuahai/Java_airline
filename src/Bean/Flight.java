@@ -1,8 +1,10 @@
 package Bean;
 
+import java.sql.Date;
+
 public class Flight {
-    private String departDate;
-    private String returnDate;
+    private Date departDate;
+    private Date returnDate;
     private String departCity;
     private String arriveCity;
     private int adults;
@@ -11,7 +13,7 @@ public class Flight {
     
     
     
-    public String getDepartDate() {
+    public Date getDepartDate() {
         return departDate;
     }
     @Override
@@ -20,13 +22,13 @@ public class Flight {
                 + departCity + ", arriveCity=" + arriveCity + ", adults=" + adults + ", kids=" + kids
                 + ", classLevel=" + classLevel + "]";
     }
-    public void setDepartDate(String departDate) {
+    public void setDepartDate(Date departDate) {
         this.departDate = departDate;
     }
-    public String getReturnDate() {
+    public Date getReturnDate() {
         return returnDate;
     }
-    public void setReturnDate(String returnDate) {
+    public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
     }
     public String getDepartCity() {

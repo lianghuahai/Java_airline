@@ -68,4 +68,14 @@
     <servlet-name>SearchFlightServlet</servlet-name>
     <url-pattern>/searchFlightServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchInDetails</display-name>
+    <servlet-name>SearchInDetails</servlet-name>
+    <servlet-class>Web.SearchInDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchInDetails</servlet-name>
+    <url-pattern>/searchInDetails</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -19,32 +19,32 @@
 			  <form action="searchFlightServlet" method="post" accept-charset=utf-8>
 			    <div id="date" >
 			      <label> From: </label>
-			      <input class="in" type="date" placeholder="DD MM YYYY" name="departDate" id="departDate">
+			      <input class="index-home" type="date" placeholder="DD MM YYYY" name="departDate" id="departDate">
 			
 			      <label> To: </label>
-			      <input class="in" type="date" placeholder="DD MM YYYY" name="returnDate" id="returnDate">
+			      <input class="index-home" type="date" placeholder="DD MM YYYY" name="returnDate" id="returnDate">
 			    </div>
 			    <div id="location">
 			      <label> Departure City: </label>
-			      <input class="in" type="text" placeholder="Departure City" name="departCity" id="departCity">
+			      <input class="index-home" type="text" placeholder="Departure City" name="departCity" id="departCity">
 			  
 			      <label> Arrival City: </label>
-			      <input  class="in" type="text" placeholder="Arrival City" name="arriveCity" id="arriveCity">
+			      <input  class="index-home" type="text" placeholder="Arrival City" name="arriveCity" id="arriveCity">
 			    </div>
 			    <div id="passenger">
 			      <label> Adults </label>
-			      <input class="in" type="text"  maxlength="3" name="adults" id="adults">
+			      <input class="index-home" type="text"  maxlength="3" name="adults" id="adults">
 			 
 			      <label> Kids </label>
-			      <input class="in" type="text" maxlength="3" name="kids" id="kids">
+			      <input class="index-home" type="text" maxlength="3" name="kids" id="kids">
 			    </div>
 			    <div id="class">
 			      <label> Class </label>
 			      <!-- <input class="in" type="text" placeholder="Economy" name="classLevel" id="classLevel"> -->
-					    <select class="in"  name="classLevel" id="classLevel">
-						  <option class="in" value="economy" selected id="economy">Economy</option>
-						  <option class="in" value="bussiness"  id="bussiness">Bussiness</option>
-						  <option class="in" value="first"  id="first">First</option>
+					    <select class="index-home"  name="classLevel" id="classLevel">
+						  <option class="index-home" value="economy" selected id="economy">Economy</option>
+						  <option class="index-home" value="bussiness"  id="bussiness">Bussiness</option>
+						  <option class="index-home" value="first"  id="first">First</option>
 						</select>
 			    </div>
 			      <br>
@@ -63,9 +63,10 @@
 <script type="text/javascript">
 function checkNull()  
 {  
+	var regk=/(^[1-9]\d*$)/;
      var num=0;  
      var str="";  
-     $("input.in").each(function(n){  
+     $("input.index-home").each(function(n){  
           if($(this).val()=="")  
           {  
                num++;  
@@ -77,11 +78,18 @@ function checkNull()
      {  
           alert(str);  
           return false;  
-     }  
-     else  
-     {  
-          return true;  
-     }  
+     }
+     if(regk.test($("#adults").val())!=true){
+    	 alert("Adults should be an integer!"); 
+    	    return false;
+    }
+     if(regk.test($("#kids").val())!=true){
+    	 alert("Kids should be an integer!"); 
+    	    return false;
+    }
+    
+      return true;  
+   
 }  
 </script>>
     

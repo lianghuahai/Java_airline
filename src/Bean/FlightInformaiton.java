@@ -8,7 +8,22 @@ public class FlightInformaiton {
     private String airline;
     private String stop;
     private double ticketPrice;
-//    private String durationTime
+    private String departCity;
+    private String arriveCity;
+    
+public String getDepartCity() {
+        return departCity;
+    }
+    public void setDepartCity(String departCity) {
+        this.departCity = departCity;
+    }
+    public String getArriveCity() {
+        return arriveCity;
+    }
+    public void setArriveCity(String arriveCity) {
+        this.arriveCity = arriveCity;
+    }
+    //    private String durationTime
     public String getDepartTime() {
         return departTime;
     }
@@ -48,8 +63,8 @@ public class FlightInformaiton {
     public double getTicketPrice() {
         return ticketPrice;
     }
-    public void setTicketPrice(double ticketPrice) {
-        this.ticketPrice = ticketPrice;
+    public void setTicketPrice(Double string) {
+        this.ticketPrice = string;
     }
     @Override
     public String toString() {

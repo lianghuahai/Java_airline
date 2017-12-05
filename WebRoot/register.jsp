@@ -17,27 +17,27 @@
 		<form action="registerServlet" method="post" accept-charset=utf-8 >
 			<h1>Register Form</h1>
 			<label>Email: </label>
-		    <input class="in" type="text" name="email" id="email"> <span id="emailStatus"></span>
+		    <input class="index-home" type="text" name="email" id="email"> <span id="emailStatus"></span>
 		    <br>
 		    <label>First Name: </label>
-		    <input class="in" type="text" name="firstname"  id="firstname">
+		    <input class="index-home" type="text" name="firstname"  id="firstname">
 		    <br><label>Last name: </label>
-		    <input class="in" type="text" name="lastname" id="lastname">
+		    <input class="index-home" type="text" name="lastname" id="lastname">
 		    <br>
 		    <label>Address: </label>
-		    <input class="in" size="100" type="text" name="address" id="address">
+		    <input class="index-home" size="100" type="text" name="address" id="address">
 		    <br>
 		    <label>City: </label>
-		    <input class="in" type="text" name="city" id="city">
+		    <input class="index-home" type="text" name="city" id="city">
 		    <br>
 		    <label>State: </label>
-		    <input class="in" type="text" name="state" id="state">
+		    <input class="index-home" type="text" name="state" id="state">
 		    <br>
 		    <label>ZipCode: </label>
-		    <input class="in" type="text" name="zipcode" id="zipcode" size="5" maxlength="5">
+		    <input class="index-home" type="text" name="zipcode" id="zipcode" size="5" maxlength="5">
 		    <br>
 		    <label>Password: </label>
-		    <input class="in" type="text" name="password" id="password">
+		    <input class="index-home" type="text" name="password" id="password">
 		
 			<div>
 				<input id="sub" class="search" type="submit" value="Register" onclick="return checkNull()"/>
