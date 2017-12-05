@@ -27,7 +27,6 @@ public class UserService {
     }
     
     public void addEmployee(User user){
-    	register(user);
-    	
+    	ud.addEmployee(user);
     }
 }

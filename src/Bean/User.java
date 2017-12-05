@@ -10,6 +10,9 @@ public class User {
 	        private String zipcode;
 	        private String password;
 	        private String level;
+	        int SSN;
+	        int isManager;
+	        int hourlyRate;
 	        
 	public String getEmail() {
         return email;
@@ -101,6 +104,30 @@ public class User {
                 + address + ", city=" + city + ", state=" + state + ", zipcode=" + zipcode + ", password="
                 + password + ", level=" + level + "]";
     }
+
+	public int getSSN() {
+		return SSN;
+	}
+
+	public void setSSN(int sSN) {
+		SSN = sSN;
+	}
+
+	public int getIsManager() {
+		return isManager;
+	}
+
+	public void setIsManager(int isManager) {
+		this.isManager = isManager;
+	}
+
+	public int getHourlyRate() {
+		return hourlyRate;
+	}
+
+	public void setHourlyRate(int hourlyRate) {
+		this.hourlyRate = hourlyRate;
+	}
 
   
 

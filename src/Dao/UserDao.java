@@ -139,4 +139,47 @@ public class UserDao {
         }
         return user;
     }
+    
+    public void addEmployee(User user){
+    	Connection conn = null;
+        java.sql.PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+                conn = JdbcUtil.getConnection();
+                String sql = "SELECT MAX(id) AS maxId FROM person";
+                stmt = conn.prepareStatement(sql);
+                rs = stmt.executeQuery();
+                int previousMaxId=0;
+                if(rs.next()){
+                     previousMaxId = rs.getInt(1);
+                }
+                sql = "INSERT INTO person (email,firstname,password,level,lastname,address,city,state,zipcode, id)VALUES (?,?,?,?,?,?,?,?,?,?)";
+                stmt = conn.prepareStatement(sql);
+                stmt.setString(1, user.getEmail());
+                stmt.setString(2, user.getFirstname());
+                stmt.setString(3, user.getPassword());
+                stmt.setString(4, user.getLevel());
+                stmt.setString(5, user.getLastname());
+                stmt.setString(6, user.getAddress());
+                stmt.setString(7, user.getCity());
+                stmt.setString(8, user.getState());
+                stmt.setString(9, user.getZipcode());
+                stmt.setInt(10, previousMaxId+1);;
+                stmt.executeUpdate();
+                
+                sql = "INSERT INTO employee ( Id, SSN, IsManager, StartDate, HourlyRate)VALUES(?,?,?,?,?)";
+                stmt = conn.prepareStatement(sql);
+                stmt.setInt(1, previousMaxId+1);
+                stmt.setInt(2, user.getSSN());
+                stmt.setInt(3, user.getIsManager());
+                stmt.setDate(4, java.sql.Date.valueOf(java.time.LocalDate.now()));
+                stmt.setDouble(5, user.getHourlyRate());
+                stmt.executeUpdate();
+        } catch (SQLException e) {
+               throw new RuntimeException();
+        }finally{
+                JdbcUtil.release(conn, stmt, rs);
+        }               
+    }
 }
