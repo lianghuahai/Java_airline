@@ -76,11 +76,13 @@ public class UserDao {
         
         try {
                 conn = JdbcUtil.getConnection();
-                String sql = "SELECT MAX(Id) AS maxId FROM person";
+                String sql = "SELECT MAX(id) AS maxId FROM person";
                 stmt = conn.prepareStatement(sql);
                 rs = stmt.executeQuery();
-                int previousMaxId = rs.getInt("maxId");
-                
+                int previousMaxId=0;
+                if(rs.next()){
+                     previousMaxId = rs.getInt(1);
+                }
                 sql = "INSERT INTO person (email,firstname,password,level,lastname,address,city,state,zipcode, id)VALUES (?,?,?,?,?,?,?,?,?,?)";
                 stmt = conn.prepareStatement(sql);
                 stmt.setString(1, user.getEmail());

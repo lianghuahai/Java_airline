@@ -33,7 +33,7 @@ public class RegisterServlet extends HttpServlet {
 	        User newUser = new User();
                 try {
                     BeanUtils.populate(newUser, request.getParameterMap());
-                    newUser.setLevel("economy");
+                    newUser.setLevel("customer");
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 } catch (InvocationTargetException e) {
