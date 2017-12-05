@@ -10,9 +10,10 @@ public class User {
 	        private String zipcode;
 	        private String password;
 	        private String level;
-	        int SSN;
-	        int isManager;
-	        int hourlyRate;
+	        private String startDate;
+	        private int SSN;
+	        private int isManager;
+	        private int hourlyRate;
 	        
 	public String getEmail() {
         return email;
@@ -127,6 +128,14 @@ public class User {
 
 	public void setHourlyRate(int hourlyRate) {
 		this.hourlyRate = hourlyRate;
+	}
+
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
 	}
 
   

@@ -173,7 +173,7 @@ public class UserDao {
                 stmt.setInt(1, previousMaxId+1);
                 stmt.setInt(2, user.getSSN());
                 stmt.setInt(3, user.getIsManager());
-                stmt.setDate(4, java.sql.Date.valueOf(java.time.LocalDate.now()));
+                stmt.setString(4, user.getStartDate());
                 stmt.setDouble(5, user.getHourlyRate());
                 stmt.executeUpdate();
         } catch (SQLException e) {
