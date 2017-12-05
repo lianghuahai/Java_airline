@@ -31,12 +31,14 @@ public class dao_demoTest {
           flight.setArriveCity("Los Angeles");
           try {
               conn = JdbcUtil.getConnection();
-              String sql = "SELECT *, al1.name AS airlinename, al2.name AS airlinename  FROM leg L, Leg L2, airport A, airport B, airline al1, airline al2  WHERE L.DepAirportID = A.id AND L2.ArrAirportID = B.id  AND  A.city = ? AND  B.city = ? AND al1.id=L.AirlineID AND al2.id=L2.AirlineID  AND L.ArrAirportID = L2.DepAirportID AND TO_DAYS(DATE(L.DepTime))%7 = TO_DAYS(DATE('?'))%7 AND L.ArrTime < L2.DepTime";
+              String sql = "SELECT *, al1.name AS airlinename, al2.name AS airlinename  FROM leg L, Leg L2, airport A, airport B, airline al1, airline al2  WHERE L.DepAirportID = A.id AND L2.ArrAirportID = B.id  AND  A.city = ? AND  B.city = ? AND al1.id=L.AirlineID AND al2.id=L2.AirlineID  AND L.ArrAirportID = L2.DepAirportID AND TO_DAYS(DATE(L.DepTime))%7 = TO_DAYS(DATE(?))%7 AND L.ArrTime < L2.DepTime";
               stmt = conn.prepareStatement(sql);
               stmt.setString(1, flight.getDepartCity());
               stmt.setString(2, flight.getArriveCity());
-              stmt.setString(3, "2011-01-05");
+              System.out.println("1");
+              stmt.setString(3, "2011-01-06");
               System.out.println(flight);
+              System.out.println("1");
               System.out.println(sql);
               rs = stmt.executeQuery();
               
