@@ -63,7 +63,7 @@
 			              </select>
 			         
 			      <br>
-			      <button class="btn"  type="submit">Search</button>
+			      <button class="btn-m"  type="submit">Search</button>
 			      </form>
 			  </div>
 			</div>

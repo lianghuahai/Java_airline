@@ -98,4 +98,14 @@
     <servlet-name>ChecSSNServlet</servlet-name>
     <url-pattern>/checSSNServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProduceMonthlyReportServlet</display-name>
+    <servlet-name>ProduceMonthlyReportServlet</servlet-name>
+    <servlet-class>Web.ProduceMonthlyReportServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProduceMonthlyReportServlet</servlet-name>
+    <url-pattern>/produceMonthlyReportServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

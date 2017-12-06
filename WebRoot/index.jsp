@@ -4,10 +4,23 @@
 <title>CDITS</title>
      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 	  <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
      <link rel="stylesheet" type="text/css" href="./css/mystyle.css"> 
+
+<style>
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+</style>
+
 </head>
 <body class="register">
 
@@ -57,14 +70,14 @@
 			              	<option value="Delta Airlines">Delta Airlines</option>
 			              	<option value="JetBlue Airways">JetBlue Airways</option>
 			              	<option value="Lufthansa">Lufthansa</option>
-			              	<option name="" value="Southwest Airlines">Southwest Airlines</option>
+			              	<option  value="Southwest Airlines">Southwest Airlines</option>
 			              </select>
 			      <br>
-			      <button class="btn" type="submit" onclick="return checkNull()">Search</button>
+			      <button class="btn-sh" type="submit" onclick="return checkNull()">Search</button>
 			       </form>
 			  </div>
 			</div>
-		
+		<div></div>
 		
 
 
@@ -73,7 +86,13 @@
  
 <!-- Show result -->
 <script type="text/javascript">
-
+$(document).ready(function(){
+	  $('.dropdown-submenu a.test').on("click", function(e){
+	    $(this).next('ul').toggle();
+	    e.stopPropagation();
+	    e.preventDefault();
+	  });
+	});
 function checkNull()  
 {  
 	var regk=/(^[1-9]\d*$)/;

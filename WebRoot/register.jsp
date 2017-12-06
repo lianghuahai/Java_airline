@@ -3,8 +3,8 @@
 <head>
 <title>CDITS</title>
     	  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    	<link rel="stylesheet" type="text/css" href="./css/mystyle.css">
     	<script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+    	<link rel="stylesheet" type="text/css" href="./css/mystyle.css">
 </head>
     
 <body class="register">

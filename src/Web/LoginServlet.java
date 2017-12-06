@@ -30,10 +30,17 @@ public class LoginServlet extends HttpServlet {
     	User existUser  =us.checkLogin(request.getParameter("email"),request.getParameter("password"));
     	response.setContentType("text/text");
         response.setCharacterEncoding("UTF-8");
+        System.out.println(existUser);
     	if(existUser!=null){
     	    request.getSession().setAttribute("existUser", existUser);
     	    request.getSession().removeAttribute("login_status");
-    	    response.sendRedirect(request.getContextPath()+"/index.jsp");  
+    	    if(existUser.getLevel().equals("manager")){
+    	        
+    	        response.sendRedirect(request.getContextPath()+"/managerIndex.jsp");
+    	    }else{
+    	        response.sendRedirect(request.getContextPath()+"/index.jsp");
+    	        
+    	    }
     	}else{
     	    request.setAttribute("login_status", "Password not correct or user account is not exist!");
 //    	    response.sendRedirect(request.getContextPath()+"/login.jsp");  
