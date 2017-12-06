@@ -25,3 +25,25 @@ SELECT L.DepTime AS DepartTime1, L.ArrTime AS ArriveTime1, L2.DepTime AS DepartT
                 AND C.id = L.ArrAirportID
                 AND TO_DAYS(DATE(L.DepTime))%7 = TO_DAYS(DATE("2011-01-06"))%7
                 AND L.ArrTime < L2.DepTime
+                
+                
+                
+                
+//NEW EMPLOYEE AND DATA
+INSERT INTO `airlinedb`.`person` (`Id`, `FirstName`, `LastName`, `Address`, `City`, `State`, `ZipCode`, `email`, `password`, `level`) 
+VALUES ('100', 'James', 'Harden', 'lalalal', 'qqwe', 'asdf', '22222', 'james@harden.com', '1234', 'employee');
+
+INSERT INTO `airlinedb`.`employee` (`Id`, `SSN`, `IsManager`, `StartDate`, `HourlyRate`) 
+VALUES ('100', '890123456', '0', '2012-01-22', '50.00');
+
+INSERT INTO `airlinedb`.`reservation` (`ResrNo`, `ResrDate`, `BookingFee`, `TotalFare`, `RepSSN`, `AccountNo`) 
+VALUES ('336', '2017-12-06 13:04:22', '200', '950', '890123456', '3');
+
+INSERT INTO `airlinedb`.`person` (`Id`, `FirstName`, `LastName`, `Address`, `City`, `State`, `ZipCode`, `email`, `password`, `level`) 
+VALUES ('101', 'Chris', 'Paul', 'qwer', 'qwer', 'lalal', '33333', 'chris@paul.com', '1234', 'employee');
+
+INSERT INTO `airlinedb`.`employee` (`Id`, `SSN`, `IsManager`, `StartDate`, `HourlyRate`) 
+VALUES ('101', '980201001', '0', '2012-01-22', '60');
+
+INSERT INTO `airlinedb`.`reservation` (`ResrNo`, `ResrDate`, `BookingFee`, `TotalFare`, `RepSSN`, `AccountNo`) 
+VALUES ('337', '2017-12-06 14:00:00', '128', '870', '980201001', '1');
