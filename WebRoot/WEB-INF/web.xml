@@ -178,4 +178,24 @@
     <servlet-name>FindMostActiveFlightServlet</servlet-name>
     <url-pattern>/findMostActiveFlightServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>getMailListServlet</display-name>
+    <servlet-name>getMailListServlet</servlet-name>
+    <servlet-class>Web.getMailListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getMailListServlet</servlet-name>
+    <url-pattern>/getMailListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SuggestedFlightsServlet</display-name>
+    <servlet-name>SuggestedFlightsServlet</servlet-name>
+    <servlet-class>Web.SuggestedFlightsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SuggestedFlightsServlet</servlet-name>
+    <url-pattern>/SuggestedFlightsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

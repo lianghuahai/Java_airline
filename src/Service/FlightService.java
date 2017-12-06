@@ -13,12 +13,10 @@ public class FlightService {
         List <FlightInformaiton> totalList = new ArrayList<FlightInformaiton>();
         List <FlightInformaiton> noStop = fd.findOnewayFightNoStop(flight);
         List <FlightInformaiton> oneStop = fd.findOnewayFightOneStop(flight);
-        
         for(FlightInformaiton f: noStop){
         	totalList.add(f);
         }
         for(FlightInformaiton f: oneStop){
-                f.setStop(1);
         	totalList.add(f);
         }
         return totalList;
