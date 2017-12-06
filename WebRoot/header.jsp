@@ -14,13 +14,26 @@
 	  <a href="autions.jsp" id="autions">Autions</a>
 	  <a href="#" >My Flight History</a>
 	  <a href="#" >Contact Support</a>
-	  <a href="register.jsp" id="register">Register</a>
 	  
 	  <c:if test="${not empty existUser}">
+		  	<c:if test="${ existUser.level =='customer'}">
+	   		  <a href="register.jsp" id="register">Register</a>
 	  	<span id="loginStatus">welcome ${existUser.firstname }</span>
-	 	<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
+			 	<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
+		 	</c:if>
+		  	<c:if test="${ existUser.level =='employee'}">
+	   		  <a href="registerEmploye.jsp" id="register">Register</a>
+	  	<span id="loginStatus">welcome ${existUser.firstname }</span>
+		 	<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
+		 	</c:if>
+		  	<c:if test="${ existUser.level =='manager'}">
+	   		  <a href="manager.jsp" id="register">Register</a>
+	  	<span id="loginStatus">welcome ${existUser.firstname }</span>
+		 	<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
+		 	</c:if>
 	  </c:if>
 	  <c:if test="${empty existUser}">
+	  <a href="register.jsp" id="register">Register</a>
 	 	<a href="login.jsp" id="login">Sign in</a>
 	  </c:if>
 	</div>

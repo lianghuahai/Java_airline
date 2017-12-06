@@ -53,33 +53,20 @@ public class SearchFlightServlet extends HttpServlet {
                 System.out.println(flight);
                 request.setAttribute("flight", flight);
                 List <FlightInformaiton>resultList = fs.findOnewayFight(flight);
-//                List <FlightInformaiton>resultList = new ArrayList<FlightInformaiton>();
-//                for (int i=0;i<8;i++) {
-//                    FlightInformaiton flightbean = new FlightInformaiton();
-//                    flightbean.setDepartAirport("nddddddddddy");
-//                    flightbean.setArriveAirport("aaaaaaaaaaaaaala");
-//                    flightbean.setAirline("UA");
-//                    flightbean.setStop("10");
-//                    flightbean.setTicketPrice(999);
-//                    flightbean.setDepartTime("2017-11-01");
-//                    flightbean.setReturnTime("2017-11-01aaaaaaaaa");
-//                    resultList.add(flightbean);
-//                }
+
+                
                 for(FlightInformaiton f: resultList){
                    System.out.println(f.getAirline());
             }
                 request.setAttribute("resultList", resultList);
                 request.getRequestDispatcher("/search.jsp").forward(request, response);
 	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
+
+                
+                
+                
+                
+                
 	    
 	    
 	}

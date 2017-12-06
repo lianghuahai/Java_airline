@@ -11,7 +11,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
-
+//fineOneway
 SELECT L.DepTime AS DepartTime1, L.ArrTime AS ArriveTime1, L2.DepTime AS DepartTime2, L.ArrTime AS ArriveTime2, 
 				A.Name AS Name1, B.Name AS Name2, C.Name AS Name3,
 				al1.name AS airlinename, al2.name AS airlinename

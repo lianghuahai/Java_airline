@@ -9,7 +9,7 @@ public class FlightInformaiton {
     private String departAirport;
     private String arriveAirport;
     private List<String> airline = new ArrayList<String>();
-    private String stop;
+    private int stop;
     public List<String> getTransferAirport() {
         return transferAirport;
     }
@@ -69,10 +69,10 @@ public String getDepartCity() {
         return airline;
     }
     
-    public String getStop() {
+    public int getStop() {
         return stop;
     }
-    public void setStop(String stop) {
+    public void setStop(int stop) {
         this.stop = stop;
     }
     public double getTicketPrice() {

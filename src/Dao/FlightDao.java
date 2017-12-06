@@ -78,8 +78,9 @@ public class FlightDao {
                 f.getAirline().add(rs.getString("airlineName2"));
                 f.setDepartTime(rs.getString("departtime1"));
                 f.setReturnTime(rs.getString("ArriveTime1"));
+                f.getTransferAirport().add(rs.getString("Name2"));
                 f.setDepartAirport(rs.getString("Name1"));
-                f.setArriveAirport(rs.getString("Name2"));
+                f.setArriveAirport(rs.getString("Name3"));
                 f.setTicketPrice(999.00);
                 //set data to existFlightList
                 existFlightList.add(f);

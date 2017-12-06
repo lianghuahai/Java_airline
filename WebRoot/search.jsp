@@ -63,7 +63,7 @@
 				 	<div class="single-result" id="single-result">
 					 	<div class="flight-div-time">
 					 	<div id="label-style-stop">
-					 	<span>Stop:${flightInfo.transferAirport}</span>
+					 	<span>Stop:${flightInfo.stop}</span>
 					 	</div>
 					 		<label class="flight-label" >DepartTime: <span>${flightInfo.departTime}</span></label>
 					 		<label class="flight-label" id="label-style">ReturnTime: <span>${flightInfo.returnTime}</span></label>
