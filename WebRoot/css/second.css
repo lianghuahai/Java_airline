@@ -1,0 +1,57 @@
+html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+    
+    .mystyle-navbar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial;
+    }
+
+    .mystyle-navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+    .mystyle-navbar span {
+    float: left;
+    font-size: 16px;
+    color: #73AD21;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    
+    }
+   	#logout{
+    color: #ff8080;
+    }
+    .selected{
+    background-color: #00CED1;
+    color: black;
+    }
+
+    .content{
+        padding-left: 50px;
+        font-size: 30px;
+    }
+    .index-home{
+        resize: both;
+        width: 180px;
+        height: 40px;
+    }
+    
+ div.content h2{
+ 	color:#9932CC;
+ 	margin:20px;
+ }
+ body.register {
+	background-size: cover;
+	background: #DCDDDF url(https://images.unsplash.com/photo-1452716726610-30ed68426a6b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=177c2914fe84d20069f207e27632acc9)center/cover no-repeat;
+	color: #000;
+	font: 14px Arial;
+	margin: 0 auto;
+	padding: 250px;
+	position: relative;
+	
+}
