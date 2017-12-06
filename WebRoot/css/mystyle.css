@@ -47,7 +47,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
  	color:#9932CC;
  	margin:20px;
  }
-
+.help-m{
+	float: right;
+	float: left;
+}
 
 
 /* Login  css  */
@@ -421,6 +424,19 @@ input.index-home {
   border-radius: 3px;
   outline: none;
   color: #fff;
+  font-size: 20px;
+}
+input.date-m{
+	 resize: both;
+        width: 180px;
+        height: 40px;
+	 background: rgba(255, 255, 255, 0.15);
+  padding: 8px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  color: black;
   font-size: 20px;
 }
 select {

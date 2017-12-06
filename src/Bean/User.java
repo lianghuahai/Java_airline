@@ -99,14 +99,17 @@ public class User {
         this.level = level;
     }
 
-    @Override
+    
+
+	@Override
     public String toString() {
         return "User [email=" + email + ", firstname=" + firstname + ", lastname=" + lastname + ", address="
                 + address + ", city=" + city + ", state=" + state + ", zipcode=" + zipcode + ", password="
-                + password + ", level=" + level + "]";
+                + password + ", level=" + level + ", startDate=" + startDate + ", SSN=" + SSN
+                + ", isManager=" + isManager + ", hourlyRate=" + hourlyRate + "]";
     }
 
-	public int getSSN() {
+    public int getSSN() {
 		return SSN;
 	}
 

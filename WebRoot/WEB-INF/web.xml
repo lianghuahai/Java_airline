@@ -78,4 +78,24 @@
     <servlet-name>SearchInDetails</servlet-name>
     <url-pattern>/searchInDetails</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisterEmployeeServlet</display-name>
+    <servlet-name>RegisterEmployeeServlet</servlet-name>
+    <servlet-class>Web.RegisterEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterEmployeeServlet</servlet-name>
+    <url-pattern>/registerEmployeeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ChecSSNServlet</display-name>
+    <servlet-name>ChecSSNServlet</servlet-name>
+    <servlet-class>Web.ChecSSNServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChecSSNServlet</servlet-name>
+    <url-pattern>/checSSNServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

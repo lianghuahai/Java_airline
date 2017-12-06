@@ -167,8 +167,9 @@ public class UserDao {
                 stmt.setString(9, user.getZipcode());
                 stmt.setInt(10, previousMaxId+1);;
                 stmt.executeUpdate();
-                
-                sql = "INSERT INTO employee ( Id, SSN, IsManager, StartDate, HourlyRate)VALUES(?,?,?,?,?)";
+                System.out.println("11111111111111111");
+                System.out.println(user);
+                sql = "INSERT INTO employee (Id,SSN,IsManager,StartDate,HourlyRate)VALUES(?,?,?,?,?)";
                 stmt = conn.prepareStatement(sql);
                 stmt.setInt(1, previousMaxId+1);
                 stmt.setInt(2, user.getSSN());
@@ -176,6 +177,7 @@ public class UserDao {
                 stmt.setString(4, user.getStartDate());
                 stmt.setDouble(5, user.getHourlyRate());
                 stmt.executeUpdate();
+                System.out.println("1");
         } catch (SQLException e) {
                throw new RuntimeException();
         }finally{
@@ -204,8 +206,8 @@ public class UserDao {
                throw new RuntimeException();
         }finally{
                 JdbcUtil.release(conn, stmt, rs);
-                return user;
         }             
+        return user;
     }
     
     public void updateEmployeeInfo(User user){

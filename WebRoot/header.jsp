@@ -36,6 +36,7 @@
 	  <a href="register.jsp" id="register">Register</a>
 	 	<a href="login.jsp" id="login">Sign in</a>
 	  </c:if>
+	  <a href="helpMenu.jsp" class="help-m">Help Menu</a>
 	</div>
 	
 	

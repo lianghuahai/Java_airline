@@ -14,7 +14,7 @@
 <div class="content">
 	<div class="container">
 	<section id="content">
-		<form action="registerServlet" method="post" accept-charset=utf-8 >
+		<form action="registerEmployeeServlet" method="post" accept-charset=utf-8 >
 			<h1>Register Form</h1>
 			<label>Email: </label>
 		    <input class="index-home" type="text" name="email" id="email"> <span id="emailStatus"></span>
@@ -40,17 +40,15 @@
 		    <input class="index-home" type="text" name="password" id="password">
 		    <br>
 		    <label>SSN: </label>
-		    <input class="index-home" type="text" name="SSN" id="SSN">
+		    <input class="index-home" type="text" name="SSN" id="SSN" maxlength="11"> <span id="ssnCheck"></span>
 		    <br>
-		    <label>StartDatedate: </label>
-		    <input class="index-home" type="text" name="StartDatedate" id="StartDatedate">
 		    <label>HourlyRate: </label>
-		    <input class="index-home" type="text" name="HourlyRate" id="HourlyRate">
-		    
-		    
-		    
-		    
-		    
+		    <input class="index-home" type="text" name="hourlyRate" id="hourlyRate" maxlength="8">
+		     <label>StartDatedate: </label>
+		    <input class="date-m" type="date" name="startDate" id="startDate" placeholder="yyyy-mm-dd">
+		    <label>Manager: </label>
+		    <input  type="checkbox" name="isManager" id="isManager" value="1">
+		    <br>
 		    
 			<div>
 				<input id="sub" class="search" type="submit" value="Register" onclick="return checkNull()"/>
@@ -111,7 +109,34 @@
 	       	 )
 			} 
 	    });
-	
+		$("#SSN").blur(function(){
+			if($("#SSN").val()==null){
+				$("#ssnCheck").text("x");
+    			$("#ssnCheck").css({'color':'red'});
+    			$("#sub").attr({'onclick':'return false'});
+				return ;
+			}else{
+	        $.post(
+	        	"${pageContext.request.contextPath}/checSSNServlet",
+	        	{
+	        		"SSN":$("#SSN").val()
+	        	},
+	        	function(data){
+	        		/* $("#emailStatus").innerHTML="" */
+	        		var flag = data;
+	        		if(flag=="false"){
+	        			$("#ssnCheck").text("x");
+	        			$("#ssnCheck").css({'color':'red'});
+	        			$("#sub").attr({'onclick':'return false'});
+	        		}else{
+	        			$("#ssnCheck").text("v");
+	        			$("#ssnCheck").css({'color':'green'});
+	        			 $("#sub").attr({'onclick':'return checkNull()'}); 
+	        		}
+	        	}
+	       	 )
+			} 
+	    });
 	</script>
     
 </body>
