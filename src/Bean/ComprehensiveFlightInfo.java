@@ -1,7 +1,15 @@
 package Bean;
 
 public class ComprehensiveFlightInfo {
-	private String airlineName;
+	@Override
+    public String toString() {
+        return "ComprehensiveFlightInfo [airlineName=" + airlineName + ", flightNo=" + flightNo
+                + ", noOfSeats=" + noOfSeats + ", daysOperating=" + daysOperating + ", minLengthOfStay="
+                + minLengthOfStay + ", maxLengthOfStay=" + maxLengthOfStay + ", legNo=" + legNo
+                + ", arriveTime=" + arriveTime + ", departTime=" + departTime + ", departAirport="
+                + departAirport + ", arriveAirport=" + arriveAirport + "]";
+    }
+    private String airlineName;
 	private int flightNo;
 	private int noOfSeats;
 	private String daysOperating;

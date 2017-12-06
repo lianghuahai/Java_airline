@@ -41,13 +41,13 @@ public class FlightReportDao {
                 //set data to existFlightList
                 existFlightList.add(f);
            }
-
-          } catch (SQLException e) {
-                 throw new RuntimeException();
-          }finally{
-                  JdbcUtil.release(conn, stmt, rs);
-          } 
-        return existFlightList;
+                System.out.println("existFlightList"+existFlightList);
+              } catch (SQLException e) {
+                     throw new RuntimeException();
+              }finally{
+                      JdbcUtil.release(conn, stmt, rs);
+              } 
+            return existFlightList;
 	}
 	
 	public List<ComprehensiveFlightInfo> getMostActiveFlights(){

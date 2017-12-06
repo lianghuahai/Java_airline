@@ -6,9 +6,10 @@ import Bean.ComprehensiveFlightInfo;
 import Dao.FlightReportDao;
 
 public class ReportInfoService {
-	private FlightReportDao fd;
+	private FlightReportDao fd =new FlightReportDao();
 	
 	public List<ComprehensiveFlightInfo> getAllFlightInfo(){
+	    System.out.println(fd.getAllFlightInfo());
 		return fd.getAllFlightInfo();
 	}
 	

@@ -21,7 +21,15 @@ public class Reservation {
 	
 	private double totalRevenue;
 	
-	public String getReservationDate() {
+	@Override
+    public String toString() {
+        return "Reservation [reservationNo=" + reservationNo + ", ReservationDate=" + ReservationDate
+                + ", bookingFee=" + bookingFee + ", totalFare=" + totalFare + ", flightNo=" + flightNo
+                + ", airlineName=" + airlineName + ", accountNo=" + accountNo + ", repSSN=" + repSSN
+                + ", LegNo=" + LegNo + ", firstName=" + firstName + ", lastName=" + lastName
+                + ", destinationCity=" + destinationCity + ", totalRevenue=" + totalRevenue + "]";
+    }
+    public String getReservationDate() {
 		return ReservationDate;
 	}
 	public void setReservationDate(String reservationDate) {
