@@ -15,6 +15,8 @@ public class Reservation {
 	
 	private String destinationCity;
 	
+	private double totalRevenue;
+	
 	public String getReservationDate() {
 		return ReservationDate;
 	}
@@ -74,5 +76,11 @@ public class Reservation {
 	}
 	public void setDestinationCity(String destinationCity) {
 		this.destinationCity = destinationCity;
+	}
+	public double getTotalRevenue() {
+		return totalRevenue;
+	}
+	public void setTotalRevenue(double totalRevenue) {
+		this.totalRevenue = totalRevenue;
 	}
 }

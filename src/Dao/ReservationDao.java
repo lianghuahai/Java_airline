@@ -38,8 +38,8 @@ public class ReservationDao {
                throw new RuntimeException();
         }finally{
                 JdbcUtil.release(conn, stmt, rs);
-                return reservations;
-        }             
+        }   
+        return reservations;
 	}
 	
 	public List<Reservation> getReservationsByFlight(String airlineName, int flightNo){
@@ -71,8 +71,8 @@ public class ReservationDao {
                throw new RuntimeException();
         }finally{
                 JdbcUtil.release(conn, stmt, rs);
-                return reservations;
-        }      
+        }   
+        return reservations;
 	}
 	
 	public List<Reservation> getReservationsByCustomer(String firstName, String lastName){
@@ -104,8 +104,8 @@ public class ReservationDao {
                throw new RuntimeException();
         }finally{
                 JdbcUtil.release(conn, stmt, rs);
-                return reservations;
-        }      
+        }   
+        return reservations;
 	}
 	
 	
@@ -133,8 +133,91 @@ public class ReservationDao {
                throw new RuntimeException();
         }finally{
                 JdbcUtil.release(conn, stmt, rs);
-                return reservations;
-        }      
+        }
+        return reservations;
 	}
 	
+	public List<Reservation> getTopCustomerRepresentativeOfRevenue(){
+		Connection conn = null;
+        java.sql.PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Reservation> reservations = new ArrayList<Reservation>();
+        try {
+                conn = JdbcUtil.getConnection();
+                String sql = "SELECT P.Firstname, P.Lastname,SUM(R.BookingFee) AS TotalRevenue FROM Reservation R, Employee E, Person P WHERE R.RepSSN = E.SSN AND E.Id = P.Id GROUP BY R.RepSSN ORDER BY TotalRevenue DESC";
+                stmt = conn.prepareStatement(sql);
+                rs = stmt.executeQuery();
+                
+                while(rs.next()){
+                	Reservation res = new Reservation();
+                	res.setFirstName(rs.getString("Firstname"));
+                	res.setLastName(rs.getString("Lastname"));
+                	res.setBookingFee(rs.getDouble("TotalRevenue"));
+                	reservations.add(res);
+                }
+
+        } catch (SQLException e) {
+               throw new RuntimeException();
+        }finally{
+                JdbcUtil.release(conn, stmt, rs);
+        }   
+        return reservations;
+	}
+	
+	public List<Reservation> getTopCustomerOfRevenue(){
+		Connection conn = null;
+        java.sql.PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Reservation> reservations = new ArrayList<Reservation>();
+        try {
+                conn = JdbcUtil.getConnection();
+                String sql = "SELECT P.FirstName, P.LastName, SUM(R.BookingFee) AS TotalRevenue FROM Reservation R, customer C, Person P WHERE R.AccountNo = C.AccountNo AND P.id = C.id GROUP BY R.AccountNo ORDER BY TotalRevenue DESC";
+                stmt = conn.prepareStatement(sql);
+                rs = stmt.executeQuery();
+                
+                while(rs.next()){
+                	Reservation res = new Reservation();
+                	res.setFirstName(rs.getString("Firstname"));
+                	res.setLastName(rs.getString("Lastname"));
+                	res.setBookingFee(rs.getDouble("TotalRevenue"));
+                	reservations.add(res);
+                }
+
+        } catch (SQLException e) {
+               throw new RuntimeException();
+        }finally{
+                JdbcUtil.release(conn, stmt, rs);
+        }   
+        return reservations;
+	}
+	
+	public List<Reservation> getCustomersOnGivenFlight(String airlineName, int flightNo){
+		Connection conn = null;
+        java.sql.PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Reservation> reservations = new ArrayList<Reservation>();
+        try {
+                conn = JdbcUtil.getConnection();
+                String sql = "SELECT DISTINCT a.Name, i.FlightNo, p.FirstName,p.LastName FROM custome c,  reservation r    ,includes i,person p, Airline a WHERE  i.FlightNo=? AND a.Name = ? AND a.id = i.AirlineID AND r.AccountNo=c.AccountNo AND i.ResrNo=r.ResrNo AND p.id=c.id";
+                stmt = conn.prepareStatement(sql);
+                stmt.setInt(1, flightNo);
+                stmt.setString(2, airlineName);
+                rs = stmt.executeQuery();
+                
+                while(rs.next()){
+                	Reservation res = new Reservation();
+                	res.setAirlineName(airlineName);
+                	res.setFlightNo(flightNo);
+                	res.setFirstName(rs.getString("Firstname"));
+                	res.setLastName(rs.getString("Lastname"));
+                	reservations.add(res);
+                }
+
+        } catch (SQLException e) {
+               throw new RuntimeException();
+        }finally{
+                JdbcUtil.release(conn, stmt, rs);
+        }   
+        return reservations;
+	}
 }

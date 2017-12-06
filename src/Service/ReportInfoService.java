@@ -11,4 +11,12 @@ public class ReportInfoService {
 	public List<ComprehensiveFlightInfo> getAllFlightInfo(){
 		return fd.getAllFlightInfo();
 	}
+	
+	public List<ComprehensiveFlightInfo> getMostActiveFlights(){
+		return fd.getMostActiveFlights();
+	}
+	
+	public List<ComprehensiveFlightInfo> getAllFlightsOfAirport(String airportName){
+		return fd.getAllFlightsOfAirport(airportName);
+	}
 }

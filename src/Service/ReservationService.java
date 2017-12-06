@@ -24,5 +24,13 @@ public class ReservationService {
 	public List<Reservation> getReservationsByDestinationCity(String destinationCity){
 		return rd.getReservationsByDestinationCity(destinationCity);
 	}
+	
+	public List<Reservation> getTopCustomerRepresentativeOfRevenue(){
+		return rd.getTopCustomerRepresentativeOfRevenue();
+	}
+	
+	public List<Reservation> getTopCustomerOfRevenue(){
+		return rd.getTopCustomerOfRevenue();
+	}
 
 }
