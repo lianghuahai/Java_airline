@@ -139,7 +139,32 @@ public class UserDao {
         }
         return user;
     }
-    
+    public User findUserbySSN(int ssn) {
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        User user = null;
+        try {
+                conn = JdbcUtil.getConnection();
+                stmt = conn.createStatement();
+                
+                String sql = "select * from employee where SSN='"+ssn+"'";
+                stmt.execute(sql);
+                rs = stmt.executeQuery(sql);
+               
+
+                if(rs.next()){
+                    user=new User();
+                }
+                
+        } catch (SQLException e) {
+                e.printStackTrace();
+                return null;
+        }finally{
+                JdbcUtil.release(conn, stmt, rs);
+        }
+        return user;
+    }
     public void addEmployee(User user){
     	Connection conn = null;
         java.sql.PreparedStatement stmt = null;
@@ -258,4 +283,6 @@ public class UserDao {
                 JdbcUtil.release(conn, stmt, rs);
         }             
     }
+
+   
 }

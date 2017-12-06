@@ -27,7 +27,8 @@ public class ChecSSNServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    User existUser  =ud.findUserbyEmail(request.getParameter("email"));
+	    int ssn = Integer.valueOf(request.getParameter("SSN"));
+	    User existUser  =ud.findUserbySSN(ssn);
             if(existUser!=null){
                     System.out.println("flase");
                     request.setAttribute("ssn_valid", false);
@@ -42,7 +43,7 @@ public class ChecSSNServlet extends HttpServlet {
 //              response.getWriter().print(jsonArray.toString());
             response.setContentType("text/text");
             response.setCharacterEncoding("UTF-8");
-            response.getWriter().print(request.getAttribute("Email_valid"));
+            response.getWriter().print(request.getAttribute("ssn_valid"));
 	    
 	}
 
