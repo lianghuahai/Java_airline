@@ -40,5 +40,9 @@ public class ReservationService {
 	public void addFlightToReservation(Reservation r){
 		rd.addFlightToReservation(r);
 	}
+	
+	public List<Reservation> getCustomersOnGivenFlight(String airlineName, int flightNo){
+		return rd.getCustomersOnGivenFlight(airlineName, flightNo);
+	}
 
 }
