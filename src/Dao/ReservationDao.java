@@ -220,4 +220,67 @@ public class ReservationDao {
         }   
         return reservations;
 	}
+	
+	
+	//3.2 Functions
+	public void recordReservation(Reservation r){
+		Connection conn = null;
+        java.sql.PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            conn = JdbcUtil.getConnection();
+            String sql = "SELECT MAX(ResrNo) FROM reservation";
+            stmt = conn.prepareStatement(sql);
+            rs = stmt.executeQuery();
+            
+            int previousMax = -1;
+            if(rs.next()){
+            	previousMax = rs.getInt("ResrNo");
+            }
+            
+            if(previousMax==-1){
+            	return;
+            }
+            
+            sql = "INSERT INTO reservation ( ResrNo, ResrDate, BookingFee, TotalFare, RepSSN, AccountNo) VALUES ( ?, ?, ?, ?, ?, ?);";
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, previousMax+1);
+            stmt.setString(2, r.getReservationDate());
+            stmt.setDouble(3, r.getBookingFee());
+            stmt.setDouble(4, r.getTotalFare());
+            stmt.setInt(5, r.getRepSSN());
+            stmt.setInt(6, r.getAccountNo());
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+           throw new RuntimeException();
+        }finally{
+            JdbcUtil.release(conn, stmt, rs);
+        }
+	}
+	
+	public void addFlightToReservation(Reservation r){
+		Connection conn = null;
+        java.sql.PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            conn = JdbcUtil.getConnection();
+            String sql = "INSERT INTO includes (ResrNo, AirlineID, FlightNo, LegNo, Date) VALUES(?, (SELECT A.id FROM airline A WHERE A.Name = ?), ?, ?, (SELECT L.DepTime FROM leg L, airline A WHERE L.AirlineID = A.id AND A.Name = ? AND L.FlightNo = ? AND L.LegNo = ?));";
+            
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, r.getReservationNo());
+            stmt.setString(2, r.getAirlineName());
+            stmt.setDouble(3, r.getFlightNo());
+            stmt.setDouble(4, r.getLegNo());
+            stmt.setString(5, r.getAirlineName());
+            stmt.setDouble(6, r.getFlightNo());
+            stmt.setDouble(7, r.getLegNo());
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+           throw new RuntimeException();
+        }finally{
+            JdbcUtil.release(conn, stmt, rs);
+        }
+	}
 }

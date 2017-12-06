@@ -29,4 +29,12 @@ public class UserService {
     public void addEmployee(User user){
     	ud.addEmployee(user);
     }
+    
+    public void deleteEmployee(int SSN){
+    	ud.deleteEmployee(SSN);
+    }
+    
+    public void deleteCustomer(int accountNo){
+    	ud.deleteCustomer(accountNo);
+    }
 }

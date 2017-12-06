@@ -19,4 +19,8 @@ public class ReportInfoService {
 	public List<ComprehensiveFlightInfo> getAllFlightsOfAirport(String airportName){
 		return fd.getAllFlightsOfAirport(airportName);
 	}
+	
+	public List<ComprehensiveFlightInfo> getRecommendedFlightsOfCustomer(int accountNo){
+		return fd.getRecommendedFlightsOfCustomer(accountNo);
+	}
 }

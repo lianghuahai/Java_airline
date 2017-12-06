@@ -10,6 +10,10 @@ public class Reservation {
 	private String airlineName;
 	private int accountNo;
 	
+	private int repSSN;
+	
+	private int LegNo;
+	
 	private String firstName;
 	private String lastName;
 	
@@ -82,5 +86,17 @@ public class Reservation {
 	}
 	public void setTotalRevenue(double totalRevenue) {
 		this.totalRevenue = totalRevenue;
+	}
+	public int getRepSSN() {
+		return repSSN;
+	}
+	public void setRepSSN(int repSSN) {
+		this.repSSN = repSSN;
+	}
+	public int getLegNo() {
+		return LegNo;
+	}
+	public void setLegNo(int legNo) {
+		LegNo = legNo;
 	}
 }

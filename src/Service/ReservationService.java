@@ -32,5 +32,13 @@ public class ReservationService {
 	public List<Reservation> getTopCustomerOfRevenue(){
 		return rd.getTopCustomerOfRevenue();
 	}
+	
+	public void recordReservation(Reservation r){
+		rd.recordReservation(r);
+	}
+	
+	public void addFlightToReservation(Reservation r){
+		rd.addFlightToReservation(r);
+	}
 
 }

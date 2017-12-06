@@ -121,4 +121,41 @@ public class FlightReportDao {
           }
         return existFlightList;
 	}
+	
+	
+	//3.2
+	
+	public List<ComprehensiveFlightInfo> getRecommendedFlightsOfCustomer(int accountNo){
+		List <ComprehensiveFlightInfo> existFlightList = new ArrayList<ComprehensiveFlightInfo>();
+        Connection conn = null;
+        java.sql.PreparedStatement stmt = null;               
+        ResultSet rs = null;
+        try {
+            conn = JdbcUtil.getConnection();
+            String sql = "SELECT A.Name, L2.* FROM leg L2, Airline A WHERE L2. AirlineID = A.id AND L2.ArrAirportID IN (SELECT L.ArrAirportID FROM includes I, Leg L WHERE I.AirlineID = L.AirlineID AND I.FlightNo = L.FlightNo AND I.LegNo = L.LegNo AND I.ResrNo IN (SELECT R.ResrNo FROM reservationpassenger R WHERE R.AccountNo = ?))";
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, accountNo);;
+            rs = stmt.executeQuery();
+            
+            //set up existFlight
+            while (rs.next()) {
+            	ComprehensiveFlightInfo f = new ComprehensiveFlightInfo();
+                f.setAirlineName(rs.getString("Name"));
+                f.setFlightNo(rs.getInt("FlightNo"));
+                f.setLegNo(rs.getInt("LegNo"));
+                f.setArriveTime(rs.getTimestamp("ArrTime").toString());
+                f.setDepartTime(rs.getTimestamp("DepTime").toString());
+                f.setArriveAirport(rs.getString("ArriveAP"));
+                f.setDepartAirport(rs.getString("DepartAP"));
+                //set data to existFlightList
+                existFlightList.add(f);
+           }
+
+          } catch (SQLException e) {
+                 throw new RuntimeException();
+          }finally{
+                  JdbcUtil.release(conn, stmt, rs);
+          }
+        return existFlightList;
+	}
 }

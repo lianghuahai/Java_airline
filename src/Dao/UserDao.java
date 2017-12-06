@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -269,7 +271,7 @@ public class UserDao {
                 
                 sql = "DELETE FROM employee WHERE SSN = ?;";
                 stmt = conn.prepareStatement(sql);
-                stmt.setDouble(1, SSN);
+                stmt.setInt(1, SSN);
                 stmt.executeUpdate();
                 
                 sql = "DELETE FROM person WHERE id = ?;";
@@ -282,6 +284,62 @@ public class UserDao {
         }finally{
                 JdbcUtil.release(conn, stmt, rs);
         }             
+    }
+    
+    public void deleteCustomer(int accountNo){
+    	Connection conn = null;
+        java.sql.PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+                conn = JdbcUtil.getConnection();
+                String sql = "SELECT id FROM customer WHERE AccountNo=?";
+                stmt = conn.prepareStatement(sql);
+                stmt.setInt(1, accountNo);
+                rs = stmt.executeQuery();
+                int id = rs.getInt("id");
+                
+                
+                sql = "DELETE FROM customer WHERE AccountNo = ?;";
+                stmt = conn.prepareStatement(sql);
+                stmt.setInt(1, accountNo);
+                stmt.executeUpdate();
+                
+                sql = "DELETE FROM person WHERE id = ?;";
+                stmt = conn.prepareStatement(sql);
+                stmt.setDouble(1, id);
+                stmt.executeUpdate();
+
+        } catch (SQLException e) {
+               throw new RuntimeException();
+        }finally{
+                JdbcUtil.release(conn, stmt, rs);
+        }             
+    }
+    
+    public List<User> getCustomerMailingList(){
+    	Connection conn = null;
+        java.sql.PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<User> users = new ArrayList<User>();
+        try {
+            conn = JdbcUtil.getConnection();
+            String sql = "SELECT p.FirstName, p.LastName ,p.email FROM person p, customer c WHERE  p.id = c.id;";
+            stmt = conn.prepareStatement(sql);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+            	User user = new User();
+            	user.setFirstname(rs.getString("FirstName"));
+            	user.setLastname(rs.getString("LastName"));;
+            	user.setEmail(rs.getString("email"));
+            	users.add(user);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }finally{
+             JdbcUtil.release(conn, stmt, rs);
+        }   
+        return users;
     }
 
    
