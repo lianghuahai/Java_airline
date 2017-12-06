@@ -415,7 +415,16 @@ div.containerForm{
   top: 0;
   left: 0;
 }
+select {
+border: solid 1px #000;
 
+appearance:none;
+-moz-appearance:none;
+-webkit-appearance:none;
+
+background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
+/*为下拉小箭头留出一点位置，避免被文字覆盖*/
+}
 input.index-home {
   background: rgba(255, 255, 255, 0.15);
   padding: 8px;

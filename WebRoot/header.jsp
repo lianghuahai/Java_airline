@@ -9,30 +9,37 @@
   
 	 <!-- Navigation Bar -->
 	<div class="mystyle-navbar">
-	  <a href="index.jsp" class="selected" id="index">CDITS</a>
-	  <a href="#" >My Reservations</a>
-	  <a href="autions.jsp" id="autions">Autions</a>
-	  <a href="#" >My Flight History</a>
-	  <a href="#" >Contact Support</a>
+	  <a href="index.jsp" class="selected" id="index">Home</a>
+	  <a href="#"  id="index">Cars</a>
+	  <a href="#"  id="index">Hotels</a>
+	  
 	  
 	  <c:if test="${not empty existUser}">
 		  	<c:if test="${ existUser.level =='customer'}">
-	   		  <a href="register.jsp" id="register">Register</a>
-	  	<span id="loginStatus">welcome ${existUser.firstname }</span>
+				  	<a href="#" >My Reservations</a>
+				  <a href="autions.jsp" id="autions">Autions</a>
+				  <a href="#" >My Flight History</a>
+				  <a href="#" >Contact Support</a>
+	   		  	<a href="register.jsp" id="register">Register</a>
+	  			<span id="loginStatus">welcome ${existUser.firstname }</span>
 			 	<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
 		 	</c:if>
-		  	<c:if test="${ existUser.level =='employee'}">
-	   		  <a href="registerEmploye.jsp" id="register">Register</a>
-	  	<span id="loginStatus">welcome ${existUser.firstname }</span>
-		 	<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
-		 	</c:if>
+		 	
 		  	<c:if test="${ existUser.level =='manager'}">
-	   		  <a href="manager.jsp" id="register">Register</a>
-	  	<span id="loginStatus">welcome ${existUser.firstname }</span>
-		 	<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
+	   		    <a href="registerEmploye.jsp" id="register">Register</a>
+	  			<span id="loginStatus">welcome ${existUser.firstname }</span>
+		 		<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
+		 	</c:if>
+		 	
+		  	<c:if test="${ existUser.level =='employee'}">
+	   		    <a href="register.jsp" id="register">Register</a>
+	  			<span id="loginStatus">welcome ${existUser.firstname }</span>
+		 		<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
 		 	</c:if>
 	  </c:if>
 	  <c:if test="${empty existUser}">
+
+	  <a href="#" >Contact Support</a>
 	  <a href="register.jsp" id="register">Register</a>
 	 	<a href="login.jsp" id="login">Sign in</a>
 	  </c:if>

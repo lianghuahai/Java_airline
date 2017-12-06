@@ -10,17 +10,24 @@ public class Flight {
     private int adults;
     private int kids;
     private String classLevel;
+    private String preferAirline;
     
     
-    
+    public String getPreferAirline() {
+        return preferAirline;
+    }
+    public void setPreferAirline(String preferAirline) {
+        this.preferAirline = preferAirline;
+    }
     public Date getDepartDate() {
         return departDate;
     }
+   
     @Override
     public String toString() {
         return "Flight [departDate=" + departDate + ", returnDate=" + returnDate + ", departCity="
                 + departCity + ", arriveCity=" + arriveCity + ", adults=" + adults + ", kids=" + kids
-                + ", classLevel=" + classLevel + "]";
+                + ", classLevel=" + classLevel + ", preferAirline=" + preferAirline + "]";
     }
     public void setDepartDate(Date departDate) {
         this.departDate = departDate;

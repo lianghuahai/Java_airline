@@ -17,6 +17,7 @@
 		<!--left pane Search  -->
 			<div class="content">
 			    <h2 >Search your flight</h2>
+			    <form action="searchFlightServlet" method="post" accept-charset=utf-8>
 			  <div class="search">
 			    <div id="date" >
 			      <label> From: </label>
@@ -39,7 +40,6 @@
 			      <label> Kids </label>
 			      <input class="index-home" type="text" maxlength="3" name="kids" id="kids" value="${flight.kids}">
 			    </div>
-			    <div id="class">
 			      <label> Class </label>
 			      <!-- <input class="in" type="text" placeholder="Economy" name="classLevel" id="classLevel"> -->
 					    <select class="index-home"  name="classLevel" id="classLevel">
@@ -47,9 +47,24 @@
 						  <option class="index-home" value="bussiness" <c:if test="${'bussiness' eq flight.classLevel}">selected</c:if> id="bussiness">Bussiness</option>
 						  <option class="index-home" value="first" <c:if test="${'first' eq flight.classLevel}">selected</c:if> id="first">First</option>
 						</select>
-			    </div>
+			    <label> Preferred airline </label>
+			              <select class="index-home"  name="preferAirline" id="preferAirline">
+			                <option value="nop" <c:if test="${'nop' eq flight.preferAirline}">selected</c:if>> No preference</option>
+			              	<option value="Air Berlin" <c:if test="${'Air Berlin' eq flight.preferAirline}">selected</c:if>>Air Berlin</option>
+			              	<option value="United Airlines" <c:if test="${'United Airlines' eq flight.preferAirline}">selected</c:if>>United Airlines</option>
+			              	<option value="Air Japan" <c:if test="${'Air Japan' eq flight.preferAirline}">selected</c:if>>Air Japan</option>
+			              	<option value="Air Madagascar" <c:if test="${'Air Madagascar' eq flight.preferAirline}">selected</c:if>>Air Madagascar</option>
+			              	<option value="American Airlines" <c:if test="${'American Airlines' eq flight.preferAirline}">selected</c:if>>American Airlines</option>
+			              	<option value="British Airways" <c:if test="${'British Airways' eq flight.preferAirline}">selected</c:if>>British Airways</option>
+			              	<option value="Delta Airlines" <c:if test="${'Delta Airlines' eq flight.preferAirline}">selected</c:if>>Delta Airlines</option>
+			              	<option value="JetBlue Airways" <c:if test="${'JetBlue Airways' eq flight.preferAirline}">selected</c:if>>JetBlue Airways</option>
+			              	<option value="Lufthansa" <c:if test="${'Lufthansa' eq flight.preferAirline}">selected</c:if>>Lufthansa</option>
+			              	<option value="Southwest Airlines" <c:if test="${'Southwest Airlines' eq flight.preferAirline}">selected</c:if>>Southwest Airlines</option>
+			              </select>
+			         
 			      <br>
-			      <button class="btn"  onclick="submitForm()">Search</button>
+			      <button class="btn"  type="submit">Search</button>
+			      </form>
 			  </div>
 			</div>
 		</div>

@@ -33,12 +33,11 @@
 			    </div>
 			    <div id="passenger">
 			      <label> Adults </label>
-			      <input class="index-home" type="text"  maxlength="3" name="adults" id="adults">
+			      <input class="index-home" type="text"  maxlength="3" name="adults" id="adults" ">
 			 
 			      <label> Kids </label>
 			      <input class="index-home" type="text" maxlength="3" name="kids" id="kids">
 			    </div>
-			    <div id="class">
 			      <label> Class </label>
 			      <!-- <input class="in" type="text" placeholder="Economy" name="classLevel" id="classLevel"> -->
 					    <select class="index-home"  name="classLevel" id="classLevel">
@@ -46,7 +45,20 @@
 						  <option class="index-home" value="bussiness"  id="bussiness">Bussiness</option>
 						  <option class="index-home" value="first"  id="first">First</option>
 						</select>
-			    </div>
+	    		<label> Preferred airline </label>
+			              <select class="index-home"  name="preferAirline" id="preferAirline">
+			                <option selected="selected" value=""> No preference</option>
+			              	<option value="Air Berlin">Air Berlin</option>
+			              	<option value="United Airlines">United Airlines</option>
+			              	<option value="Air Japan">Air Japan</option>
+			              	<option value="Air Madagascar">Air Madagascar</option>
+			              	<option value="American Airlines">American Airlines</option>
+			              	<option value="British Airways">British Airways</option>
+			              	<option value="Delta Airlines">Delta Airlines</option>
+			              	<option value="JetBlue Airways">JetBlue Airways</option>
+			              	<option value="Lufthansa">Lufthansa</option>
+			              	<option name="" value="Southwest Airlines">Southwest Airlines</option>
+			              </select>
 			      <br>
 			      <button class="btn" type="submit" onclick="return checkNull()">Search</button>
 			       </form>
@@ -61,6 +73,7 @@
  
 <!-- Show result -->
 <script type="text/javascript">
+
 function checkNull()  
 {  
 	var regk=/(^[1-9]\d*$)/;
