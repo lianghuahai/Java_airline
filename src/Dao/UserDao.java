@@ -26,7 +26,7 @@ public class UserDao {
 			stmt.execute(sql);
 			rs = stmt.executeQuery(sql);
 			
-			//遍历rs
+
 			while(rs.next()){
 				System.out.println(rs.getString("Name"));
 			}
@@ -55,7 +55,7 @@ public class UserDao {
                         stmt.execute(sql);
                         rs = stmt.executeQuery(sql);
                         
-                        //遍历rs
+
                         while(rs.next()){
                                 System.out.println(rs.getString("Name"));
                         }
@@ -117,7 +117,7 @@ public class UserDao {
                 stmt.execute(sql);
                 rs = stmt.executeQuery(sql);
                
-                //遍历rs
+
                 if(rs.next()){
                     user=new User();
                     user.setAddress(rs.getString("address"));
@@ -235,9 +235,21 @@ public class UserDao {
         ResultSet rs = null;
         try {
                 conn = JdbcUtil.getConnection();
-                String sql = "DELETE FROM employee WHERE SSN = ?;";
+                String sql = "SELECT id FROM employee WHERE SSN=?";
+                stmt = conn.prepareStatement(sql);
+                stmt.setInt(1, SSN);
+                rs = stmt.executeQuery();
+                int id = rs.getInt("id");
+                
+                
+                sql = "DELETE FROM employee WHERE SSN = ?;";
                 stmt = conn.prepareStatement(sql);
                 stmt.setDouble(1, SSN);
+                stmt.executeUpdate();
+                
+                sql = "DELETE FROM person WHERE id = ?;";
+                stmt = conn.prepareStatement(sql);
+                stmt.setDouble(1, id);
                 stmt.executeUpdate();
 
         } catch (SQLException e) {
