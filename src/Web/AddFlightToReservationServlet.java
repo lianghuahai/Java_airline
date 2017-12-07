@@ -38,10 +38,10 @@ public class AddFlightToReservationServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
         Reservation r = new Reservation();
-        r.setReservationNo(Integer.valueOf(request.getParameter()));
-        r.setAirlineName(request.getParameter);
-        r.setFlightNo(Integer.valueOf(request.getParameter()));
-        r.setLegNo(Integer.valueOf(request.getParameter()));
+        r.setReservationNo(Integer.valueOf(request.getParameter("ReservationNo")));
+        r.setAirlineName(request.getParameter("AirlineName"));
+        r.setFlightNo(Integer.valueOf(request.getParameter("FlightNo")));
+        r.setLegNo(Integer.valueOf(request.getParameter("LegNo")));
         rs.addFlightToReservation(r);
 	}
 

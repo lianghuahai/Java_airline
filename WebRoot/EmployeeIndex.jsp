@@ -12,6 +12,7 @@
 	 <!-- Navigation Bar -->
 	 <div class="mystyle-navbar">
 		 		 <a href="javascript:void(0)" id="register" onclick="RecordReservation()">Record a reservation</a>
+		 		 <a href="javascript:void(0)" id="register" onclick="AddFlighttoreservation()">Add Flight to reservation</a>
 	   		    <a href="registerCustomer.jsp" id="registerCustomer">RegisterCustomer</a>
 	   		    <a href="javascript:void(0)" id="deleteCustomer" onclick="deleteCustomer()">DeleteCustomer</a>
 	   		    
@@ -31,6 +32,37 @@
 	
 	
 <script type="text/javascript">
+function AddFlighttoreservation(){
+	$('#aa').empty();
+	$('#searchByAccount').empty();
+	$('#searchByAccount').append("<label>Enter ReservationNo: </label>: <input class='index-home' type='text' name='ReservationNo' id='ReservationNo'><br>"
+	+"<label>Enter AirlineName: </label>: <input class='index-home' type='text' name='AirlineName' id='AirlineName'><br>"
+	+"<label>Enter FlightNo: </label>: <input class='index-home' type='text' name='FlightNo' id='FlightNo'><br>"
+	+"<label>Enter LegNo: </label>: <input class='index-home' type='text' name='LegNo' id='LegNo'><br>"
+	+"<button onclick='openAddFlighttoreservation()'>Record</button> ");
+	
+}
+function openAddFlighttoreservation(){
+	$.post(
+			"${pageContext.request.contextPath}/AddFlightToReservationServlet",
+			{
+				'ReservationNo':$('#ReservationNo').val(),
+				'AirlineName':$('#AirlineName').val(),
+				'FlightNo':$('#FlightNo').val(),
+				'LegNo':$('#LegNo').val()
+			},
+			function(data){
+				alert("Recorded!")
+		}) ;
+}
+
+
+
+
+
+
+
+
 function RecordReservation(){
 	$('#aa').empty();
 	$('#searchByAccount').empty();
@@ -51,10 +83,7 @@ function openRecordReservation(){
 				'eSSN':$('#eSSN').val()
 			},
 			function(data){
-				alert(data)
-				$('#aa').empty();
-				$('#searchByAccount').empty();
-				$('#aa').append(data);
+				alert("Recorded!")
 		}) ;
 }
 

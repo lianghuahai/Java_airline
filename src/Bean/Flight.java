@@ -3,8 +3,8 @@ package Bean;
 import java.sql.Date;
 
 public class Flight {
-    private Date departDate;
-    private Date returnDate;
+    private String departDate;
+    private String returnDate;
     private String departCity;
     private String arriveCity;
     private int adults;
@@ -19,7 +19,7 @@ public class Flight {
     public void setPreferAirline(String preferAirline) {
         this.preferAirline = preferAirline;
     }
-    public Date getDepartDate() {
+    public String getDepartDate() {
         return departDate;
     }
    
@@ -29,13 +29,13 @@ public class Flight {
                 + departCity + ", arriveCity=" + arriveCity + ", adults=" + adults + ", kids=" + kids
                 + ", classLevel=" + classLevel + ", preferAirline=" + preferAirline + "]";
     }
-    public void setDepartDate(Date departDate) {
+    public void setDepartDate(String departDate) {
         this.departDate = departDate;
     }
-    public Date getReturnDate() {
+    public String getReturnDate() {
         return returnDate;
     }
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(String returnDate) {
         this.returnDate = returnDate;
     }
     public String getDepartCity() {
