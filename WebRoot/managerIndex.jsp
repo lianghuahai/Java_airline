@@ -38,7 +38,6 @@ function deleteUser(){
 	
 }
 function openDelete(){
-	alert($('#employeeID').val())
 	$.post(
 			"${pageContext.request.contextPath}/deleteEmployeeServlet",
 			{

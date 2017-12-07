@@ -59,14 +59,12 @@
 		
 	}
 	function openSuggestedFlights(){
-		alert(1)
 		$.post(
 				"${pageContext.request.contextPath}/SuggestedFlightsServlet",
 				{
 					'accountNo':$('#accountNo').val()
 				},
 				function(data){
-					alert(data)		
 					$('.content').empty();
 					$('#aa').empty();
 					$('#aa').append(data);

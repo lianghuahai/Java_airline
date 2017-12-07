@@ -11,7 +11,7 @@
   <body class="register">
 	 <!-- Navigation Bar -->
 	 <div class="mystyle-navbar">
-		 		 <a href="register.jsp" id="register">Record a reservation</a>
+		 		 <a href="#" id="register">Record a reservation</a>
 	   		    <a href="registerCustomer.jsp" id="registerCustomer">RegisterCustomer</a>
 	   		    <a href="javascript:void(0)" id="deleteCustomer" onclick="deleteCustomer()">deleteCustomer</a>
 	   		    
@@ -38,14 +38,12 @@ function SuggestedFlights(){
 	
 }
 function openSuggestedFlights(){
-	alert(1)
 	$.post(
 			"${pageContext.request.contextPath}/SuggestedFlightsServlet",
 			{
 				'accountNo':$('#accountNo').val()
 			},
 			function(data){
-				alert(data)
 				$('#aa').empty();
 				$('#aa').append(data);
 		}) ;
@@ -70,14 +68,12 @@ function deleteCustomer(){
 	
 }
 function opendeleteCustomer(){
-	alert(1)
 	$.post(
 			"${pageContext.request.contextPath}/deleteCustomerServlet",
 			{
 				'accountNo':$('#accountNo').val()
 			},
 			function(data){
-				alert(data)
 				$('#aa').empty();
 				$('#aa').append(data);
 		}) ;
