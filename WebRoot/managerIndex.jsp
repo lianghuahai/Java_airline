@@ -19,7 +19,8 @@
 	   		    <a href="javascript:void(0)" id="employeeP" onclick="employeeMethod()">EmployeePerformance</a>
 	   		    <a href="javascript:void(0)" id="customerP" onclick="customerMethod()">CustomerPerformance</a>
 	   		    <a href="javascript:void(0)" id="MostActiveFlight" onclick="MostActiveFlight()">MostActiveFlight</a>
-	   		    <a href="CustomerHasSeats.jsp" id="CustomerHasSeats"onclick="CustomerHasSeats()">CustomerHasSeats</a>
+	   		    <a href="customerHasSeats.jsp" id="CustomerHasSeats">CustomerHasSeats</a>
+	   		    <a href="flightByGivenAirport.jsp" id="flightByGivenAirport">flightByGivenAirport.jsp</a>
 	  			<span id="loginStatus">welcome ${existUser.firstname }</span>
 		 		<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
 	 

@@ -178,4 +178,24 @@
     <servlet-name>FindMostActiveFlightServlet</servlet-name>
     <url-pattern>/findMostActiveFlightServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchSeatsServlet</display-name>
+    <servlet-name>SearchSeatsServlet</servlet-name>
+    <servlet-class>Web.SearchSeatsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchSeatsServlet</servlet-name>
+    <url-pattern>/searchSeatsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FlightByGivenAirport</display-name>
+    <servlet-name>FlightByGivenAirport</servlet-name>
+    <servlet-class>Web.FlightByGivenAirport</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FlightByGivenAirport</servlet-name>
+    <url-pattern>/flightByGivenAirport</url-pattern>
+  </servlet-mapping>
 </web-app>

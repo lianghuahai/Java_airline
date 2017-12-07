@@ -198,7 +198,7 @@ public class ReservationDao {
         List<Reservation> reservations = new ArrayList<Reservation>();
         try {
                 conn = JdbcUtil.getConnection();
-                String sql = "SELECT DISTINCT a.Name, i.FlightNo, p.FirstName,p.LastName FROM custome c,  reservation r    ,includes i,person p, Airline a WHERE  i.FlightNo=? AND a.Name = ? AND a.id = i.AirlineID AND r.AccountNo=c.AccountNo AND i.ResrNo=r.ResrNo AND p.id=c.id";
+                String sql = "SELECT DISTINCT a.Name, i.FlightNo, p.FirstName,p.LastName FROM customer c,reservation r,includes i,person p, Airline a WHERE  i.FlightNo=? AND a.Name = ? AND a.id = i.AirlineID AND r.AccountNo=c.AccountNo AND i.ResrNo=r.ResrNo AND p.id=c.id";
                 stmt = conn.prepareStatement(sql);
                 stmt.setInt(1, flightNo);
                 stmt.setString(2, airlineName);
