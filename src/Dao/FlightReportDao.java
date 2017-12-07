@@ -132,7 +132,7 @@ public class FlightReportDao {
         ResultSet rs = null;
         try {
             conn = JdbcUtil.getConnection();
-            String sql = "SELECT A.Name, L2.* FROM leg L2, Airline A WHERE L2. AirlineID = A.id AND L2.ArrAirportID IN (SELECT L.ArrAirportID FROM includes I, Leg L WHERE I.AirlineID = L.AirlineID AND I.FlightNo = L.FlightNo AND I.LegNo = L.LegNo AND I.ResrNo IN (SELECT R.ResrNo FROM reservationpassenger R WHERE R.AccountNo = ?))";
+            String sql = "SELECT A.Name, L2.*,  AP1.Name AS DepartAP, AP2.Name AS ArriveAP FROM leg L2, Airline A, airport AP1, airport AP2 WHERE L2. AirlineID = A.id AND L2.DepAirportID = AP1.id AND L2.ArrAirportID = AP2.id AND L2.ArrAirportID IN (SELECT L.ArrAirportID FROM includes I, Leg L WHERE I.AirlineID = L.AirlineID AND I.FlightNo = L.FlightNo AND I.LegNo = L.LegNo AND I.ResrNo IN (SELECT R.ResrNo FROM reservationpassenger R WHERE R.AccountNo = ?))";
             stmt = conn.prepareStatement(sql);
             stmt.setInt(1, accountNo);
             rs = stmt.executeQuery();
