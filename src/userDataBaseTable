@@ -67,3 +67,8 @@ VALUES ('101', '980201001', '0', '2012-01-22', '60');
 
 INSERT INTO `airlinedb`.`reservation` (`ResrNo`, `ResrDate`, `BookingFee`, `TotalFare`, `RepSSN`, `AccountNo`) 
 VALUES ('337', '2017-12-06 14:00:00', '128', '870', '980201001', '1');
+
+
+
+
+SELECT L.DepTime AS DepartTime1, L.ArrTime AS ArriveTime1, L2.DepTime AS DepartTime2, L.ArrTime AS ArriveTime2, A.Name AS Name1, B.Name AS Name2, C.Name AS Name3,al1.name AS airlinename1, al2.name AS airlinename2 FROM leg L, Leg L2, airport A, airport B, airport C, airline al1, airline al2 WHERE L.DepAirportID = A.id AND L2.ArrAirportID = B.id AND  A.city = "New York" AND  B.city ="Los Angeles" AND al1.id=L.AirlineID AND al2.id=L2.AirlineID AND L.ArrAirportID = L2.DepAirportID AND C.id = L.ArrAirportID AND L.ArrTime < L2.DepTime AND TO_DAYS(DATE(L.DepTime))%7 < TO_DAYS(DATE("2011-01-05"))%7 + 2 AND TO_DAYS(DATE(L.DepTime))%7 > TO_DAYS(DATE("2011-01-05"))%7 - 2;
