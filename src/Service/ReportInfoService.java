@@ -24,4 +24,8 @@ public class ReportInfoService {
 	public List<ComprehensiveFlightInfo> getRecommendedFlightsOfCustomer(int accountNo){
 		return fd.getRecommendedFlightsOfCustomer(accountNo);
 	}
+	
+	public List<ComprehensiveFlightInfo> getBestSellerFlights(){
+		return fd.getBestSellerFlights();
+	}
 }

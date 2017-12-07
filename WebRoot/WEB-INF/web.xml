@@ -218,4 +218,14 @@
     <servlet-name>SuggestedFlightsServlet</servlet-name>
     <url-pattern>/SuggestedFlightsServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BestSellerFlightsServlet</display-name>
+    <servlet-name>BestSellerFlightsServlet</servlet-name>
+    <servlet-class>Web.BestSellerFlightsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BestSellerFlightsServlet</servlet-name>
+    <url-pattern>/BestSellerFlightsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

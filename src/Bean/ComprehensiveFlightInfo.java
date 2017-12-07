@@ -20,6 +20,7 @@ public class ComprehensiveFlightInfo {
 	private String departTime;
 	private String departAirport;
 	private String arriveAirport;
+	private double reservedSeatPercentage;
 	
 	
 	
@@ -88,5 +89,11 @@ public class ComprehensiveFlightInfo {
 	}
 	public void setArriveAirport(String arriveAirport) {
 		this.arriveAirport = arriveAirport;
+	}
+	public double getReservedSeatPercentage() {
+		return reservedSeatPercentage;
+	}
+	public void setReservedSeatPercentage(double reservedSeatPercentage) {
+		this.reservedSeatPercentage = reservedSeatPercentage;
 	}
 }
