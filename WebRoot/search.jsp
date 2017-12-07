@@ -18,13 +18,9 @@
 			<div class="content">
 			    <h2 >Search your flight</h2>
 			    <form action="searchFlightServlet" method="post" accept-charset=utf-8>
-			  <div class="search">
 			    <div id="date" >
 			      <label> From: </label>
 			      <input class="index-home" type="date" placeholder="DD MM YYYY" name="departDate" id="departDate" value="${flight.departDate}">
-			
-			      <label> To: </label>
-			      <input class="index-home" type="date" placeholder="DD MM YYYY" name="returnDate" id="returnDate" value="${flight.returnDate}">
 			    </div>
 			    <div id="location">
 			      <label> Departure City: </label>

@@ -22,20 +22,17 @@
 </style>
 
 </head>
-<body class="register">
+<body class="register" >
 
  <%@ include file="header.jsp"%>
 		<!--left pane Search  -->
-			<div class="content">
+			<div class="content" id="roundtrip">
 			    <h2 >Search your flight</h2>
 			  <div class="search">
 			  <form action="searchFlightServlet" method="post" accept-charset=utf-8>
 			    <div id="date" >
 			      <label> From: </label>
 			      <input class="index-home" type="date" placeholder="DD MM YYYY" name="departDate" id="departDate">
-			
-			      <label> To: </label>
-			      <input class="index-home" type="date" placeholder="DD MM YYYY" name="returnDate" id="returnDate">
 			    </div>
 			    <div id="location">
 			      <label> Departure City: </label>
@@ -86,6 +83,18 @@
  
 <!-- Show result -->
 <script type="text/javascript">
+function roundTrip(){
+	$('#roundtrip').empty();
+	$("#roundtrip").load(
+		"${pageContext.request.contextPath}/roundTrip.jsp",
+		{
+			
+		},
+		function(data){
+			alert(OK)
+	}) ;
+}
+
 $(document).ready(function(){
 	  $('.dropdown-submenu a.test').on("click", function(e){
 	    $(this).next('ul').toggle();

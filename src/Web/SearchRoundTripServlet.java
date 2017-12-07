@@ -65,7 +65,7 @@ public class SearchRoundTripServlet extends HttpServlet {
 
         request.setAttribute("resultList", resultList);
         request.setAttribute("resultListTwo", resultListTwo);
-        request.getRequestDispatcher("/search.jsp").forward(request, response);
+        request.getRequestDispatcher("/roundTrip.jsp").forward(request, response);
 	}
 
 }

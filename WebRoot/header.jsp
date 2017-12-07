@@ -12,6 +12,7 @@
 	 <!-- Navigation Bar -->
 	<div class="mystyle-navbar">
 	  <a href="index.jsp" class="selected" id="index">Home</a>
+		  	<a href="javascript:void(0)"  id="index" onclick="roundTrip()">RoundTrip</a>
 	  
 	  
 	  

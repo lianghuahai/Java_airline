@@ -8,10 +8,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/mystyle.css"> 
 </head>
-  <body class="register">
+  <body class="register" >
 	 <!-- Navigation Bar -->
 	 <div class="mystyle-navbar">
 	  <a href="CustomerIndex.jsp" class="selected" id="CustomerIndex">Home</a>
+	  <a href="javascript:void(0)"  id="index" onclick="roundTrip()">RoundTrip</a>
 				  <a href="javascript:void(0)" onclick="BestSellerFlight()">Best-Seller list of flights</a>
 				  	<a href="javascript:void(0)" onclick="SuggestedFlight()">Flight Suggestion</a>
 				  <a href="javascript:void(0)" id="autions">Autions</a>
@@ -30,8 +31,6 @@
 			      <label> From: </label>
 			      <input class="index-home" type="date" placeholder="DD MM YYYY" name="departDate" id="departDate">
 			
-			      <label> To: </label>
-			      <input class="index-home" type="date" placeholder="DD MM YYYY" name="returnDate" id="returnDate">
 			    </div>
 			    <div id="location">
 			      <label> Departure City: </label>
@@ -80,6 +79,22 @@
 	<span id="userID" style="display: none;">${existUser.id}</span>
 	
 <script type="text/javascript">
+
+function roundTrip(){
+	$('#formclear').empty();
+	$("#formclear").load(
+		"${pageContext.request.contextPath}/roundTrip.jsp",
+		{
+			
+		},
+		function(data){
+			alert(OK)
+	}) ;
+}
+
+
+
+
 function itinerary(){
 	$('#aa').empty();
 	$('#formclear').empty();
