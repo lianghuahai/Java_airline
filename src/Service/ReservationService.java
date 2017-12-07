@@ -45,8 +45,8 @@ public class ReservationService {
 		return rd.getCustomersOnGivenFlight(airlineName, flightNo);
 	}
 	
-	public List<Reservation> getAllReservationGivenCustomer(int accountNo){
-		return rd.getAllReservationGivenCustomer(accountNo);
+	public List<Reservation> getAllReservationGivenCustomer(int id){
+		return rd.getAllReservationGivenCustomer(id);
 	}
 
 }

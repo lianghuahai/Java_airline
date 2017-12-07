@@ -284,16 +284,16 @@ public class ReservationDao {
         }
 	}
 	
-	public List<Reservation> getAllReservationGivenCustomer(int accountNo){
+	public List<Reservation> getAllReservationGivenCustomer(int id){
 		Connection conn = null;
         java.sql.PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Reservation> reservations = new ArrayList<Reservation>();
         try {
                 conn = JdbcUtil.getConnection();
-                String sql = "SELECT * FROM customer c,  reservation r WHERE  r.AccountNo=c.AccountNo AND r.AccountNo=?";
+                String sql = "SELECT * FROM customer c,  reservation r WHERE  r.AccountNo=c.AccountNo AND c.id=?";
                 stmt = conn.prepareStatement(sql);
-                stmt.setInt(1, accountNo);
+                stmt.setInt(1, id);
                 rs = stmt.executeQuery();
                 
                 while(rs.next()){

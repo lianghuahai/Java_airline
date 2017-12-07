@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Bean.ComprehensiveFlightInfo;
 import Bean.Reservation;
+import Bean.User;
 import Service.ReservationService;
 
 /**
@@ -38,10 +39,12 @@ public class ReservationsByCustomerServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int accountNo = 0;
+		User user = request.getSession().getAttribute("existUser");
+		
+		int id = user.getId();
 		
 		
-		List<Reservation> reservations = rs.getAllReservationGivenCustomer(accountNo);
+		List<Reservation> reservations = rs.getAllReservationGivenCustomer(id);
 		String responseStr = "";
 		for(Reservation r: reservations){
 			responseStr += r.getReservationNo() + ", " + r.getReservationDate() + ", " + r.getBookingFee() + ", " + r.getTotalFare() + "<br>";

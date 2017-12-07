@@ -1,6 +1,7 @@
 package Bean;
 
 public class User {
+	private int id;
             	private String email;
             	 private String firstname;
 	        private String lastname;
@@ -139,6 +140,14 @@ public class User {
 
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
   
