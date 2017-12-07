@@ -1,5 +1,7 @@
 package Service;
 
+import java.util.List;
+
 import Bean.User;
 import Dao.UserDao;
 
@@ -36,5 +38,9 @@ public class UserService {
     
     public void deleteCustomer(int accountNo){
     	ud.deleteCustomer(accountNo);
+    }
+    
+    public List<User> getCustomerMailingList(){
+    	return ud.getCustomerMailingList();
     }
 }
