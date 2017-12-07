@@ -64,7 +64,7 @@ public class FlightDao {
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, flight.getDepartCity());
             stmt.setString(2, flight.getArriveCity());
-            stmt.setString(3, "2011-01-06");
+            stmt.setString(3, flight.getDepartDate());
 //            System.out.println(flight);
             rs = stmt.executeQuery();
             //set up existFlight

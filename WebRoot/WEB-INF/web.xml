@@ -288,4 +288,14 @@
     <servlet-name>AddFlightToReservationServlet</servlet-name>
     <url-pattern>/AddFlightToReservationServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchRoundTripServlet</display-name>
+    <servlet-name>SearchRoundTripServlet</servlet-name>
+    <servlet-class>Web.SearchRoundTripServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchRoundTripServlet</servlet-name>
+    <url-pattern>/SearchRoundTripServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
