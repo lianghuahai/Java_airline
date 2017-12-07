@@ -13,9 +13,10 @@
 	 <div class="mystyle-navbar">
 	  <a href="CustomerIndex.jsp" class="selected" id="CustomerIndex">Home</a>
 				  <a href="javascript:void(0)" onclick="BestSellerFlight()">Best-Seller list of flights</a>
-				  	<a href="javascript:void(0)" >Flight Suggestion</a>
+				  	<a href="javascript:void(0)" onclick="SuggestedFlight()">Flight Suggestion</a>
 				  <a href="javascript:void(0)" id="autions">Autions</a>
-				  <a href="javascript:void(0)" onclick="openSuggestedFlights()">My Flight History</a>
+				  <a href="javascript:void(0)" onclick="mylighthistory()">My Flight History</a>
+				  <a href="javascript:void(0)" onclick="itinerary()">itinerary </a>
 				  
 	  			<span id="loginStatus">welcome ${existUser.firstname }</span>
 			 	<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
@@ -79,6 +80,43 @@
 	<span id="userID" style="display: none;">${existUser.id}</span>
 	
 <script type="text/javascript">
+function itinerary(){
+	$('#aa').empty();
+	$('#formclear').empty();
+	$('#searchByAccount').empty();
+	$('#searchByAccount').append("<label>Enter Reservation Number: </label>: <input class='index-home' type='text' name='reservationNo' id='reservationNo'><br><button onclick='openitinerary()'>Search</button> ");
+	
+}
+function openitinerary(){
+	$.post(
+		"${pageContext.request.contextPath}/ItineraryServlet",
+		{
+			'reservationNo': $('#reservationNo').val()
+		},
+		function(data){
+			$('#aa').empty();
+			$('#formclear').empty();
+			$('#searchByAccount').empty();
+			$('#searchByAccount').append(data);
+	}) ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function SuggestedFlight(){
 	$('#aa').empty();
 	$('#formclear').empty();
@@ -86,6 +124,32 @@ function SuggestedFlight(){
 	$('#searchByAccount').append("<label>Enter Account Number: </label>: <input class='index-home' type='text' name='accountNo' id='accountNo'><br><button onclick='openSuggestedFlights()'>Search</button> ");
 	
 }
+function openSuggestedFlights(){
+	$.post(
+		"${pageContext.request.contextPath}/SuggestedFlightsServlet",
+		{
+			'accountNo': $('#accountNo').val()
+		},
+		function(data){
+			$('#aa').empty();
+			$('#formclear').empty();
+			$('#searchByAccount').empty();
+			$('#searchByAccount').append(data);
+	}) ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 function BestSellerFlight(){
 	$.post(
 		"${pageContext.request.contextPath}/BestSellerFlightsServlet",
@@ -101,7 +165,7 @@ function BestSellerFlight(){
 }
 
 
-function openSuggestedFlights(){
+function mylighthistory(){
 	$.post(
 			"${pageContext.request.contextPath}/ReservationsByCustomerServlet",
 			{

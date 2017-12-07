@@ -37,7 +37,7 @@ public class ItineraryServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int reservationNo = 0;
+		int reservationNo = Integer.valueOf(request.getParameter("reservationNo"));
 		
 		
 		List<ComprehensiveFlightInfo> itineraryFlights = rs.getInitinery(reservationNo);

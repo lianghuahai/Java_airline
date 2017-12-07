@@ -38,6 +38,7 @@ public class SuggestedFlightsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//GET ACCOUNT NUMBER FROM REQUEST
+	    System.out.println("SuggestedFlightsServlet");
 		int accountNo = Integer.valueOf(request.getParameter("accountNo"));
 		System.out.println(accountNo);
 		

@@ -38,7 +38,6 @@ function SuggestedFlights(){
 	
 }
 function openSuggestedFlights(){
-	alert($('#accountNo').val())
 	$.post(
 			"${pageContext.request.contextPath}/SuggestedFlightsServlet",
 			{
@@ -47,6 +46,7 @@ function openSuggestedFlights(){
 			function(data){
 				alert(data)
 				$('#aa').empty();
+				$('#searchByAccount').empty();
 				$('#aa').append(data);
 		}) ;
 }
