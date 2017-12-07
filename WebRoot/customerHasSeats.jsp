@@ -36,15 +36,20 @@
 	      <input class="index-home" type="text"  name="flightNo" id="flightNo">
 	    </div>
 	    <a href="javascript:void(0)" onclick="seachSeats()">SearchCustomerReseved:</a>
-	    <div id="SearchByFlght">
+			    <div id="SearchByFlght">
 	    	<c:forEach var="flightInfo" items="${SearchCustomerReseved}">
-	    			${flightInfo.airlineName}
-	    			${flightInfo.flightNo}
-	    			${flightInfo.firstName}
-	    			${flightInfo.lastName}
+			    <div class="result-content">
+				 	<div class="single-result" id="single-result">
+	    	<label class="flight-label"><label class="word" id="xxx">airlineName:</label>	${flightInfo.airlineName}</label>
+	    	<label class="flight-label"><label class="word" id="xxx">flightNo:</label>	${flightInfo.flightNo}</label>
+	    	<label class="flight-label"><label class="word" id="xxx">firstName:</label>	${flightInfo.firstName}</label>
+	    	<label class="flight-label"><label class="word" id="xxx">lastName:</label>	${flightInfo.lastName}</label>
+	    			
 	    			<br>
+	    			 </div></div>
 	    		</c:forEach>
 	    </div>
+	   
 
 <script type="text/javascript">
 function seachSeats(){
@@ -57,7 +62,49 @@ function seachSeats(){
 		function(data){
 	}) ;
 }
-
+function MostActiveFlight(){
+	$.post(
+		"${pageContext.request.contextPath}/findMostActiveFlightServlet",
+		{
+			
+		},
+		function(data){
+			$('#aa').empty();
+			$('#aa').append(data);
+	}) ;
+}
+function customerMethod(){
+	$.post(
+		"${pageContext.request.contextPath}/findCustomerPormanceServlet",
+		{
+			
+		},
+		function(data){
+			$('#aa').empty();
+			$('#aa').append(data);
+	}) ;
+}
+	function employeeMethod(){
+		$.post(
+			"${pageContext.request.contextPath}/findEmployeePerformanceServlet",
+			{
+				
+			},
+			function(data){
+				$('#aa').empty();
+				$('#aa').append(data);
+		}) ;
+	}
+	function report(){
+		
+		$("#aa").load(
+			"${pageContext.request.contextPath}/listAllFlightServlet",
+			{
+				
+			},
+			function(data){
+		}) ;
+	}
 
 
 </script>

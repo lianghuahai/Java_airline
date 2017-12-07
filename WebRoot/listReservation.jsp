@@ -38,12 +38,14 @@
 	    <a href="javascript:void(0)" onclick="SearchByFlght()">SearchByFlght:</a>
 	    <div id="SearchByFlght">
 	    	<c:forEach var="flightInfo" items="${listByFlight}">
-	    			${flightInfo.airlineName}
-	    			${flightInfo.flightNo}
-	    			${flightInfo.reservationDate}
-	    			${flightInfo.totalFare}
-	    			${flightInfo.accountNo}
-	    			${flightInfo.bookingFee}<br>
+	    	<label class="flight-label"><label class="word">departAirport:</label>	${flightInfo.airlineName}</label>
+	    	<label class="flight-label"><label class="word">departAirport:</label>	${flightInfo.flightNo}</label>
+	    	<label class="flight-label"><label class="word">departAirport:</label>	${flightInfo.reservationDate}</label>
+	    	<label class="flight-label"><label class="word">departAirport:</label>	${flightInfo.totalFare}</label>
+	    	<label class="flight-label"><label class="word">departAirport:</label>	${flightInfo.accountNo}</label>
+	    	<label class="flight-label"><label class="word">departAirport:</label>	${flightInfo.bookingFee}</label>
+	    			
+	    	<br>
 	    		</c:forEach>
 	    </div>
 	    
@@ -84,7 +86,6 @@
 
 <script type="text/javascript">
 function SearchBydcity(){
-	alert(1)
 	$("#aa").load(
 		"${pageContext.request.contextPath}/searchByDCityServlet",
 		{

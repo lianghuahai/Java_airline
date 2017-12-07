@@ -40,7 +40,7 @@ public class FlightByGivenAirport extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    List<ComprehensiveFlightInfo> FlightByGivenAirport=ri.getAllFlightsOfAirport(request.getParameter("airportName"));
 	           request.setAttribute("FlightByGivenAirport", FlightByGivenAirport);
-	            request.getRequestDispatcher("/customerHasSeats.jsp").forward(request, response);
+	            request.getRequestDispatcher("/flightByGivenAirport.jsp").forward(request, response);
 	     }
 
 }

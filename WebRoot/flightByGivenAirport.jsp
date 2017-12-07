@@ -35,27 +35,21 @@
 	    </div>
 	    <a href="javascript:void(0)" onclick="seachSeats()">SearchCustomerReseved:</a>
 	    <div id="SearchByFlght">
-	     f.setAirlineName(rs.getString("Name"));
-                f.setNoOfSeats(rs.getInt("NoOfSeats"));
-                f.setDaysOperating(rs.getString("DaysOperating"));
-                f.setMinLengthOfStay(rs.getInt("MinLengthOfStay"));
-                f.setMaxLengthOfStay(rs.getInt("MaxLengthOfStay"));
-                f.setLegNo(rs.getInt("LegNo"));
-                f.setArriveTime(rs.getTimestamp("ArrTime").toString());
-                f.setDepartTime(rs.getTimestamp("DepTime").toString());
-                f.setArriveAirport(rs.getString("ArriveAP"));
-                f.setDepartAirport(rs.getString("DepartAP"));
+	
 	    	<c:forEach var="flightInfo" items="${FlightByGivenAirport}">
-			    	<label>	${flightInfo.flightNo}</label>
-			    	<label>	${flightInfo.noOfSeats}</label>
-			    	<label>	${flightInfo.minLengthOfStay}</label>
-			    	<label>	${flightInfo.daysOperating}</label>
-			    	<label>	${flightInfo.legNo}</label>
-			    	<label>	${flightInfo.arriveTime}</label>
-			    	<label>	${flightInfo.departTime}</label>
-			    	<label>	${flightInfo.arriveAirport}</label>
-			    	<label>	${flightInfo.departAirport}</label>
+	    	<div class="result-content">
+				 	<div class="single-result" id="single-result">
+			    	<label class="flight-label"><label class="word" id="xxx">flightNo:</label>	${flightInfo.flightNo}</label>
+			    	<label class="flight-label"><label class="word">noOfSeats:</label>	${flightInfo.noOfSeats}</label>
+			    	<label class="flight-label"><label class="word">minLengthOfStay:</label>	${flightInfo.minLengthOfStay}</label>
+			    	<label class="flight-label"><label class="word">daysOperating:</label>	${flightInfo.daysOperating}</label>
+			    	<label class="flight-label"><label class="word">legNo:</label>	${flightInfo.legNo}</label>
+			    	<label class="flight-label"><label class="word">arriveTime:</label>	${flightInfo.arriveTime}</label>
+			    	<label class="flight-label"><label class="word">departTime:</label>	${flightInfo.departTime}</label>
+			    	<label class="flight-label"><label class="word">arriveAirport:</label>	${flightInfo.arriveAirport}</label>
+			    	<label class="flight-label"><label class="word">departAirport:</label>	${flightInfo.departAirport}</label>
 	    			<br>
+	    		</div></div>
 	    		</c:forEach>
 	    </div>
 
@@ -69,7 +63,49 @@ function seachSeats(){
 		function(data){
 	}) ;
 }
-
+function MostActiveFlight(){
+	$.post(
+		"${pageContext.request.contextPath}/findMostActiveFlightServlet",
+		{
+			
+		},
+		function(data){
+			$('#aa').empty();
+			$('#aa').append(data);
+	}) ;
+}
+function customerMethod(){
+	$.post(
+		"${pageContext.request.contextPath}/findCustomerPormanceServlet",
+		{
+			
+		},
+		function(data){
+			$('#aa').empty();
+			$('#aa').append(data);
+	}) ;
+}
+	function employeeMethod(){
+		$.post(
+			"${pageContext.request.contextPath}/findEmployeePerformanceServlet",
+			{
+				
+			},
+			function(data){
+				$('#aa').empty();
+				$('#aa').append(data);
+		}) ;
+	}
+	function report(){
+		
+		$("#aa").load(
+			"${pageContext.request.contextPath}/listAllFlightServlet",
+			{
+				
+			},
+			function(data){
+		}) ;
+	}
 
 
 </script>

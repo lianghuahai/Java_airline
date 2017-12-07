@@ -14,10 +14,15 @@
 <body class="register" id="aa">
  <div class="mystyle-navbar">
 		 	
-	   		    <a href="registerEmploye.jsp" id="employee" >employee</a>
+	   		     <a href="registerEmploye.jsp" id="employee" >employee</a>
 	   		    <a href="monthlyReport.jsp" id="monthlyReport" >monthlyReport</a>
-	   		    <a href="allFlights.jsp" id="list of allFlights">list of allFlights</a>
-	   		    <a href="javascript:void(0)" id="list of reservations">list of reservations</a>
+	   		    <a href="javascript:void(0)" id="list_of_allFlights" onclick="report()">list of allFlights</a>
+	   		    <a href="listReservation.jsp" id="list of reservations">list of reservations</a>
+	   		    <a href="javascript:void(0)" id="employeeP" onclick="employeeMethod()">EmployeePerformance</a>
+	   		    <a href="javascript:void(0)" id="customerP" onclick="customerMethod()">CustomerPerformance</a>
+	   		    <a href="javascript:void(0)" id="MostActiveFlight" onclick="MostActiveFlight()">MostActiveFlight</a>
+	   		    <a href="customerHasSeats.jsp" id="CustomerHasSeats">CustomerHasSeats</a>
+	   		    <a href="flightByGivenAirport.jsp" id="flightByGivenAirport">flightByGivenAirport.jsp</a>
 	  			<span id="loginStatus">welcome ${existUser.firstname }</span>
 		 		<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
 	 
@@ -30,7 +35,7 @@
 	      <label> To: </label>
 	      <input class="index-home" type="date" placeholder="DD MM YYYY" name="returnDate" id="returnDate">
 	    </div>
-	    <a href="javascript:void(0)" onclick="report()">Report:</a>
+	    <a href="javascript:void(0)" onclick="kk()">Report:</a>
 	    
 	    <div id="showReport" >
 	    		<c:forEach var="flightInfo" items="${list}">
@@ -41,7 +46,7 @@
 	    </div>
 
 <script type="text/javascript">
-function report(){
+function kk(){
 	$("#aa").load(
 		"${pageContext.request.contextPath}/produceMonthlyReportServlet",
 		{
@@ -49,10 +54,51 @@ function report(){
 			'departDate':$('#departDate').val()
 		},
 		function(data){
-		alert(1)
 	}) ;
 }
-
+function MostActiveFlight(){
+	$.post(
+		"${pageContext.request.contextPath}/findMostActiveFlightServlet",
+		{
+			
+		},
+		function(data){
+			$('#aa').empty();
+			$('#aa').append(data);
+	}) ;
+}
+function customerMethod(){
+	$.post(
+		"${pageContext.request.contextPath}/findCustomerPormanceServlet",
+		{
+			
+		},
+		function(data){
+			$('#aa').empty();
+			$('#aa').append(data);
+	}) ;
+}
+	function employeeMethod(){
+		$.post(
+			"${pageContext.request.contextPath}/findEmployeePerformanceServlet",
+			{
+				
+			},
+			function(data){
+				$('#aa').empty();
+				$('#aa').append(data);
+		}) ;
+	}
+	function report(){
+		
+		$("#aa").load(
+			"${pageContext.request.contextPath}/listAllFlightServlet",
+			{
+				
+			},
+			function(data){
+		}) ;
+	}
 
 
 </script>

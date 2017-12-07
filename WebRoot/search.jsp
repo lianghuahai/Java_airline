@@ -157,7 +157,6 @@
 	        		"":$("#").val()
 	        	},
 	        	function(data){
-	        		alert(1);
 	        	}
 	       	 )
 		

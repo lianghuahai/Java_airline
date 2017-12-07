@@ -615,6 +615,11 @@ label.flight-label{
 	font-size:20px;
 	color:white;
 }
+label.word{
+	font-size:20px;
+	color:black;
+}
+
 div.col-md-6{
 	display:block;
 	top: 15px;
@@ -646,7 +651,10 @@ div.col-md-2{
 }
 
 
-
+#word{
+	font-size:20px;
+	color:black;
+}
 
 
 
