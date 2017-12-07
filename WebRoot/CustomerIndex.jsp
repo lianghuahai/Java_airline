@@ -69,6 +69,7 @@
 			              </select>
 			      <br>
 			      <button class="btn-sh" type="submit" onclick="return checkNull()">Search</button>
+			      <button class="btn-sh" onclick="sft()">Search flexible Time</button>
 			       </form>
 			  </div>
 			</div>
@@ -79,6 +80,32 @@
 	<span id="userID" style="display: none;">${existUser.id}</span>
 	
 <script type="text/javascript">
+
+function sft(){
+	$("#aa").load(
+		"${pageContext.request.contextPath}/produceMonthlyReportServlet",
+		{
+			'departDate':$('#departDate').val(),
+			'departCity':$('#departCity').val(),
+			'arriveCity':$('#arriveCity').val(),
+			'adults':$('#adults').val(),
+			'kids':$('#kids').val(),
+			'classLevel':$('#classLevel').val(),
+		},
+		function(data){
+	}) ;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 function roundTrip(){
 	$('#formclear').empty();
