@@ -298,4 +298,24 @@
     <servlet-name>SearchRoundTripServlet</servlet-name>
     <url-pattern>/SearchRoundTripServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchFlightOneWayFlex</display-name>
+    <servlet-name>SearchFlightOneWayFlex</servlet-name>
+    <servlet-class>Web.SearchFlightOneWayFlex</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchFlightOneWayFlex</servlet-name>
+    <url-pattern>/SearchFlightOneWayFlex</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchFlightRoundTripFlex</display-name>
+    <servlet-name>SearchFlightRoundTripFlex</servlet-name>
+    <servlet-class>Web.SearchFlightRoundTripFlex</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchFlightRoundTripFlex</servlet-name>
+    <url-pattern>/SearchFlightRoundTripFlex</url-pattern>
+  </servlet-mapping>
 </web-app>

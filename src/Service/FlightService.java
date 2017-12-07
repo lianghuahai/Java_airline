@@ -21,5 +21,18 @@ public class FlightService {
         }
         return totalList;
     }
+    
+    public List <FlightInformaiton> findOnewayFightFlex(Flight flight) {
+        List <FlightInformaiton> totalList = new ArrayList<FlightInformaiton>();
+        List <FlightInformaiton> noStop = fd.findOnewayFightNoStopFlex(flight);
+        List <FlightInformaiton> oneStop = fd.findOnewayFightOneStopFlex(flight);
+        for(FlightInformaiton f: noStop){
+        	totalList.add(f);
+        }
+        for(FlightInformaiton f: oneStop){
+        	totalList.add(f);
+        }
+        return totalList;
+    }
 
 }
