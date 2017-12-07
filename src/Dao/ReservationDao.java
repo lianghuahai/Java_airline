@@ -235,13 +235,12 @@ public class ReservationDao {
             
             int previousMax = -1;
             if(rs.next()){
-            	previousMax = rs.getInt("ResrNo");
+            	previousMax = rs.getInt("MAX(ResrNo)");
             }
             
             if(previousMax==-1){
             	return;
             }
-            
             sql = "INSERT INTO reservation ( ResrNo, ResrDate, BookingFee, TotalFare, RepSSN, AccountNo) VALUES ( ?, ?, ?, ?, ?, ?);";
             stmt = conn.prepareStatement(sql);
             stmt.setInt(1, previousMax+1);
