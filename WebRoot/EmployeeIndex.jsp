@@ -13,10 +13,10 @@
 	 <div class="mystyle-navbar">
 		 		 <a href="#" id="register">Record a reservation</a>
 	   		    <a href="registerCustomer.jsp" id="registerCustomer">RegisterCustomer</a>
-	   		    <a href="javascript:void(0)" id="deleteCustomer" onclick="deleteCustomer()">deleteCustomer</a>
+	   		    <a href="javascript:void(0)" id="deleteCustomer" onclick="deleteCustomer()">DeleteCustomer</a>
 	   		    
-	   		    <a href="javascript:void(0)" id="mailingList" onclick="mailingList()">mailing list</a>
-	   		    <a href="javascript:void(0)" id="SuggestedFlights" onclick="SuggestedFlights()">flight suggestions for a given customer</a>
+	   		    <a href="javascript:void(0)" id="mailingList" onclick="mailingList()">Mailing list</a>
+	   		    <a href="javascript:void(0)" id="SuggestedFlights" onclick="SuggestedFlights()">Flight suggestions for a given customer</a>
 	   		    
 	   		    
 	  			<span id="loginStatus">welcome ${existUser.firstname }</span>
@@ -38,12 +38,14 @@ function SuggestedFlights(){
 	
 }
 function openSuggestedFlights(){
+	alert($('#accountNo').val())
 	$.post(
 			"${pageContext.request.contextPath}/SuggestedFlightsServlet",
 			{
 				'accountNo':$('#accountNo').val()
 			},
 			function(data){
+				alert(data)
 				$('#aa').empty();
 				$('#aa').append(data);
 		}) ;

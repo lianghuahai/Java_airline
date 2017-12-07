@@ -18,14 +18,14 @@
 	  <c:if test="${not empty existUser}">
 		  	<c:if test="${ existUser.level =='customer'}">
 		  	<a href="#"  id="index">Cars</a>
-			  <a href="#"  id="index">Hotels</a>
-				  	<a href="#" >My Reservations</a>
-				  <a href="autions.jsp" id="autions">Autions</a>
-				  <a href="#" >My Flight History</a>
-				  <a href="#" >Contact Support</a>
-	   		  	<a href="register.jsp" id="register">Register</a>
+			  <a href="javascript:void(0)" onclick="BestSellerFlight()">Best-Seller list of flights</a>
+				  	<a href="javascript:void(0)" >Flight Suggestion</a>
+				  <a href="javascript:void(0)" id="autions">Autions</a>
+				  <a href="javascript:void(0)" onclick="openSuggestedFlights()">My Flight History</a>
+				  
 	  			<span id="loginStatus">welcome ${existUser.firstname }</span>
 			 	<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
+			 	<a href="helpMenu.jsp" class="help-m">Help Menu</a>
 		 	</c:if>
 		 	
 		  	<c:if test="${ existUser.level =='manager'}">

@@ -162,7 +162,38 @@
 		
 	}
 
+	function SuggestedFlight(){
+		$('#aa').empty();
+		$('#searchByAccount').empty();
+		$('#searchByAccount').append("<label>Enter Account Number: </label>: <input class='index-home' type='text' name='accountNo' id='accountNo'><br><button onclick='openSuggestedFlights()'>Search</button> ");
+		
+	}
+	function BestSellerFlight(){
+		$.post(
+			"${pageContext.request.contextPath}/BestSellerFlightsServlet",
+			{
+				
+			},
+			function(data){
+				$('#aa').empty();
+				$('#searchByAccount').empty();
+				$('#searchByAccount').append(data);
+		}) ;
+	}
 
+
+	function openSuggestedFlights(){
+		$.post(
+				"${pageContext.request.contextPath}/ReservationsByCustomerServlet",
+				{
+					'userID': $('#userID').text()
+				},
+				function(data){
+					$('#searchByAccount').empty();
+					$('#aa').empty();
+					$('#aa').append(data);
+			}) ;
+	}
 
 
 
