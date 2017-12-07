@@ -28,4 +28,8 @@ public class ReportInfoService {
 	public List<ComprehensiveFlightInfo> getBestSellerFlights(){
 		return fd.getBestSellerFlights();
 	}
+	
+	public List<ComprehensiveFlightInfo> getInitinery(int ReservationNo){
+		return fd.getInitinery(ReservationNo);
+	}
 }

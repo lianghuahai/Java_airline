@@ -258,4 +258,14 @@
     <servlet-name>ReservationsByCustomerServlet</servlet-name>
     <url-pattern>/ReservationsByCustomerServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ItineraryServlet</display-name>
+    <servlet-name>ItineraryServlet</servlet-name>
+    <servlet-class>Web.ItineraryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ItineraryServlet</servlet-name>
+    <url-pattern>/ItineraryServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

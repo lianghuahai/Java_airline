@@ -187,4 +187,42 @@ public class FlightReportDao {
           }
         return existFlightList;
 	}
+	
+	public List<ComprehensiveFlightInfo> getInitinery(int ReservationNo){
+		List <ComprehensiveFlightInfo> existFlightList = new ArrayList<ComprehensiveFlightInfo>();
+        Connection conn = null;
+        java.sql.PreparedStatement stmt = null;               
+        ResultSet rs = null;
+        try {
+            conn = JdbcUtil.getConnection();
+            String sql = "SELECT F.FlightNo, F.NoOfSeats, F.DaysOperating, F.MinLengthOfStay, F.MaxLengthOfStay, L.LegNo, L.ArrTime, L.DepTime ,AL.Name, AP.Name AS DepartAP, AP2.Name AS ArriveAP FROM flight F, leg L, airline AL, airport AP, airport AP2 WHERE F.FlightNo = L.FlightNo AND F.AirlineID = L.AirlineID AND AL.Id = F.AirlineID AND L.DepAirportID = AP.Id AND L.ArrAirportID = AP2.Id AND F.FlightNo IN (SELECT I.FlightNo FROM includes I WHERE I.ResrNo = ? AND L.LegNo = I.LegNo)";
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, ReservationNo);
+            rs = stmt.executeQuery();
+            
+            //set up existFlight
+            while (rs.next()) {
+            	ComprehensiveFlightInfo f = new ComprehensiveFlightInfo();
+            	f.setAirlineName(rs.getString("Name"));
+                f.setFlightNo(rs.getInt("FlightNo"));
+                f.setNoOfSeats(rs.getInt("NoOfSeats"));
+                f.setDaysOperating(rs.getString("DaysOperating"));
+                f.setMinLengthOfStay(rs.getInt("MinLengthOfStay"));
+                f.setMaxLengthOfStay(rs.getInt("MaxLengthOfStay"));
+                f.setLegNo(rs.getInt("LegNo"));
+                f.setArriveTime(rs.getTimestamp("ArrTime").toString());
+                f.setDepartTime(rs.getTimestamp("DepTime").toString());
+                f.setArriveAirport(rs.getString("ArriveAP"));
+                f.setDepartAirport(rs.getString("DepartAP"));
+                //set data to existFlightList
+                existFlightList.add(f);
+           }
+
+          } catch (SQLException e) {
+                 throw new RuntimeException();
+          }finally{
+                  JdbcUtil.release(conn, stmt, rs);
+          }
+        return existFlightList;
+	}
 }
