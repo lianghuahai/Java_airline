@@ -205,6 +205,23 @@ public class UserDao {
                 stmt.setDouble(5, user.getHourlyRate());
                 stmt.executeUpdate();
                 System.out.println("1");
+                
+                
+                sql = "SELECT MAX(AccountNo) AS maxAccountNo FROM customer";
+                stmt = conn.prepareStatement(sql);
+                rs = stmt.executeQuery();
+                int previousMaxAccountNo=0;
+                if(rs.next()){
+                     previousMaxAccountNo = rs.getInt("maxAccountNo");
+                }
+                
+                sql = "INSERT INTO customer ( Id, AccountNo, CreationDate) VALUES( ?, ?, ?);";
+                stmt = conn.prepareStatement(sql);
+                stmt.setInt(1, previousMaxId + 1);
+                stmt.setInt(2, previousMaxAccountNo + 1);
+                stmt.setString(3, "2017-01-05");
+                stmt.executeUpdate();
+                
         } catch (SQLException e) {
                throw new RuntimeException();
         }finally{

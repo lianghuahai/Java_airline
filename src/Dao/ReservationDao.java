@@ -283,4 +283,33 @@ public class ReservationDao {
             JdbcUtil.release(conn, stmt, rs);
         }
 	}
+	
+	public List<Reservation> getAllReservationGivenCustomer(int accountNo){
+		Connection conn = null;
+        java.sql.PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Reservation> reservations = new ArrayList<Reservation>();
+        try {
+                conn = JdbcUtil.getConnection();
+                String sql = "SELECT * FROM customer c,  reservation r WHERE  r.AccountNo=c.AccountNo AND r.AccountNo=?";
+                stmt = conn.prepareStatement(sql);
+                stmt.setInt(1, accountNo);
+                rs = stmt.executeQuery();
+                
+                while(rs.next()){
+                	Reservation res = new Reservation();
+                	res.setReservationNo(rs.getInt("ResrNo"));
+                	res.setReservationDate(rs.getDate("ResrDate").toString());
+                	res.setBookingFee(rs.getDouble("BookingFee"));
+                	res.setTotalFare(rs.getDouble("TotalFare"));
+                	reservations.add(res);
+                }
+
+        } catch (SQLException e) {
+               throw new RuntimeException();
+        }finally{
+                JdbcUtil.release(conn, stmt, rs);
+        }   
+        return reservations;
+	}
 }
