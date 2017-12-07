@@ -268,4 +268,14 @@
     <servlet-name>ItineraryServlet</servlet-name>
     <url-pattern>/ItineraryServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RecordReservationServlet</display-name>
+    <servlet-name>RecordReservationServlet</servlet-name>
+    <servlet-class>Web.RecordReservationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RecordReservationServlet</servlet-name>
+    <url-pattern>/RecordReservationServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
