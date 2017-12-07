@@ -38,10 +38,10 @@ public class RecordReservationServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		Reservation r = new Reservation();
 		r.setReservationDate("2017-12-07");
-		r.setAccountNo(accountNo);
-		r.setRepSSN(repSSN);
-		r.setBookingFee(bookingFee);
-		r.setTotalFare(totalFare);
+		r.setAccountNo(Integer.valueOf(request.getParameter("accountNo")));
+		r.setRepSSN(Integer.valueOf(request.getParameter("eSSN")));
+		r.setBookingFee(Double.valueOf(request.getParameter("bookingFee")));
+		r.setTotalFare(Double.valueOf(request.getParameter("totalFare")));
 		rs.recordReservation(r);
 	}
 

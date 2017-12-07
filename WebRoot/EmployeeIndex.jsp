@@ -11,7 +11,7 @@
   <body class="register">
 	 <!-- Navigation Bar -->
 	 <div class="mystyle-navbar">
-		 		 <a href="#" id="register">Record a reservation</a>
+		 		 <a href="javascript:void(0)" id="register" onclick="RecordReservation()">Record a reservation</a>
 	   		    <a href="registerCustomer.jsp" id="registerCustomer">RegisterCustomer</a>
 	   		    <a href="javascript:void(0)" id="deleteCustomer" onclick="deleteCustomer()">DeleteCustomer</a>
 	   		    
@@ -31,6 +31,42 @@
 	
 	
 <script type="text/javascript">
+function RecordReservation(){
+	$('#aa').empty();
+	$('#searchByAccount').empty();
+	$('#searchByAccount').append("<label>Enter Account Number: </label>: <input class='index-home' type='text' name='accountNo' id='accountNo'><br>"
+	+"<label>Enter BookingFee,: </label>: <input class='index-home' type='text' name='bookingFee' id='bookingFee'><br>"
+	+"<label>Enter TotalFare: </label>: <input class='index-home' type='text' name='totalFare' id='totalFare'><br>"
+	+"<label>Enter Employee SSN: </label>: <input class='index-home' type='text' name='eSSN' id='eSSN'><br>"
+	+"<button onclick='openRecordReservation()'>Record</button> ");
+	
+}
+function openRecordReservation(){
+	$.post(
+			"${pageContext.request.contextPath}/RecordReservationServlet",
+			{
+				'accountNo':$('#accountNo').val(),
+				'bookingFee':$('#bookingFee').val(),
+				'totalFare':$('#totalFare').val(),
+				'eSSN':$('#eSSN').val()
+			},
+			function(data){
+				alert(data)
+				$('#aa').empty();
+				$('#searchByAccount').empty();
+				$('#aa').append(data);
+		}) ;
+}
+
+
+
+
+
+
+
+
+
+
 function SuggestedFlights(){
 	$('#aa').empty();
 	$('#searchByAccount').empty();
