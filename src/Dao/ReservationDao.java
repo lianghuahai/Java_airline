@@ -269,11 +269,11 @@ public class ReservationDao {
             stmt = conn.prepareStatement(sql);
             stmt.setInt(1, r.getReservationNo());
             stmt.setString(2, r.getAirlineName());
-            stmt.setDouble(3, r.getFlightNo());
-            stmt.setDouble(4, r.getLegNo());
+            stmt.setInt(3, r.getFlightNo());
+            stmt.setInt(4, r.getLegNo());
             stmt.setString(5, r.getAirlineName());
-            stmt.setDouble(6, r.getFlightNo());
-            stmt.setDouble(7, r.getLegNo());
+            stmt.setInt(6, r.getFlightNo());
+            stmt.setInt(7, r.getLegNo());
             stmt.executeUpdate();
 
         } catch (SQLException e) {

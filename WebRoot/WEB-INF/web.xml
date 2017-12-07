@@ -278,4 +278,14 @@
     <servlet-name>RecordReservationServlet</servlet-name>
     <url-pattern>/RecordReservationServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddFlightToReservationServlet</display-name>
+    <servlet-name>AddFlightToReservationServlet</servlet-name>
+    <servlet-class>Web.AddFlightToReservationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddFlightToReservationServlet</servlet-name>
+    <url-pattern>/AddFlightToReservationServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
