@@ -8,7 +8,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/mystyle.css"> 
 </head>
-  <body class="register" >
+  <body class="register" id="aa">
 	 <!-- Navigation Bar -->
 	 <div class="mystyle-navbar">
 	  <a href="CustomerIndex.jsp" class="selected" id="CustomerIndex">Home</a>
@@ -21,7 +21,7 @@
 				  
 	  			<span id="loginStatus">welcome ${existUser.firstname }</span>
 			 	<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
-			 	<a href="helpMenu.jsp" class="help-m">Help Menu</a>
+			 	<a href="https://docs.google.com/document/d/1cDQ7wf3MznF1shG0xC4w5f0sY1nZPyaPBpuYDNikAdA/edit?usp=sharing" class="help-m">Help Menu</a>
 	</div>
 	<div class="content" id="formclear">
 			    <h2 >Search your flight</h2>
@@ -69,7 +69,7 @@
 			              </select>
 			      <br>
 			      <button class="btn-sh" type="submit" onclick="return checkNull()">Search</button>
-			      <button class="btn-sh" onclick="sft()">Search flexible Time</button>
+			      <button class="btn-sh" style="margin-left: 150px;" onclick="roundTrip()">Search flexible Time</button>
 			       </form>
 			  </div>
 			</div>
@@ -82,8 +82,9 @@
 <script type="text/javascript">
 
 function sft(){
+	alert("SearchFlightOneWayFlex")
 	$("#aa").load(
-		"${pageContext.request.contextPath}/produceMonthlyReportServlet",
+		"${pageContext.request.contextPath}/SearchFlightOneWayFlex",
 		{
 			'departDate':$('#departDate').val(),
 			'departCity':$('#departCity').val(),
@@ -93,17 +94,9 @@ function sft(){
 			'classLevel':$('#classLevel').val(),
 		},
 		function(data){
+			
 	}) ;
 }
-
-
-
-
-
-
-
-
-
 
 
 

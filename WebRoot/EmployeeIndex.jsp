@@ -22,7 +22,7 @@
 	   		    
 	  			<span id="loginStatus">welcome ${existUser.firstname }</span>
 		 		<a href="${pageContext.request.contextPath}/logoutServlet" id="logout">Log out</a>
-				  <a href="helpMenu.jsp" class="help-m">Help Menu</a>
+				  <a href="https://docs.google.com/document/d/1cDQ7wf3MznF1shG0xC4w5f0sY1nZPyaPBpuYDNikAdA/edit?usp=sharing" class="help-m" target="_Blank">Help Menu</a>
 	</div>
 	
 	<div id="searchByAccount"></div>

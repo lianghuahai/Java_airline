@@ -55,7 +55,7 @@
 		    <a href="register.jsp" id="register">Register</a>
 		 	<a href="login.jsp" id="login">Sign in</a>
 	  </c:if>
-	  <a href="helpMenu.jsp" class="help-m">Help Menu</a>
+	  <a href="https://docs.google.com/document/d/1cDQ7wf3MznF1shG0xC4w5f0sY1nZPyaPBpuYDNikAdA/edit?usp=sharing" class="help-m" target="_Blank">Help Menu</a>
 	</div>
 	
 	
