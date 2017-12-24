@@ -1,19 +1,14 @@
 package Web;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.PageContext;
 
-import org.apache.commons.beanutils.BeanUtils;
 
 import Bean.User;
-import Bean.loginUser;
-import Dao.UserDao;
 import Service.UserService;
 
 public class LoginServlet extends HttpServlet {
@@ -37,9 +32,12 @@ public class LoginServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
     	if(existUser!=null){
     	    request.getSession().setAttribute("existUser", existUser);
+    	    request.getSession().removeAttribute("login_status");
     	    response.sendRedirect(request.getContextPath()+"/index.jsp");  
     	}else{
-    	    response.sendRedirect(request.getContextPath()+"/login.jsp");  
+    	    request.setAttribute("login_status", "Password not correct or user account is not exist!");
+//    	    response.sendRedirect(request.getContextPath()+"/login.jsp");  
+    	    request.getRequestDispatcher("/login.jsp").forward(request,response);
     	}
 ////	
 	

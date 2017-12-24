@@ -7,10 +7,7 @@ import java.sql.Statement;
 
 import org.junit.Test;
 
-import com.mysql.jdbc.PreparedStatement;
-
 import Utils.JdbcUtil;
-
 
 
 /**
@@ -23,7 +20,8 @@ public class dao_demoTest {
 	 * add method
 	 * 
 	 */
-	@Test
+	@SuppressWarnings("null")
+    @Test
 	public void addDemo(){
 		Connection conn = null;
 		java.sql.PreparedStatement stmt = null;

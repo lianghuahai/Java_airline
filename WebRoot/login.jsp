@@ -1,13 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="./css/mystyle.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+ <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
 </head>
-
+<h2  id="login_status">${login_status}</h2>
 <body class="login">
    <div class="container" >
 	<div id="content">

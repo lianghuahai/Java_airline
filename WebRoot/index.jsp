@@ -3,7 +3,8 @@
 <head>
 <title>CDITS</title>
      <link rel="stylesheet" type="text/css" href="./css/mystyle.css"> 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+	  <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
 </head>
 <body class="register">
 
@@ -14,7 +15,7 @@
 	
 	    <h2 >Search your flight</h2>
 	  <div class="search">
-	  <form action="searchFlight()" method="post">
+	  <form action="searchFlight()" method="post" accept-charset=utf-8>
 	    <div id="date" >
 	      <label> From: </label>
 	      <input class="in" type="date" placeholder="DD MM YYYY" name="departDate">

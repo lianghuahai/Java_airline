@@ -4,7 +4,7 @@
 <title>CDITS</title>
     	  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     	<link rel="stylesheet" type="text/css" href="./css/mystyle.css">
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    	<script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
 </head>
     
 <body class="register">
@@ -92,7 +92,7 @@
 	        		}else{
 	        			$("#emailStatus").text("v");
 	        			$("#emailStatus").css({'color':'green'});
-	        			$("#sub").attr({'onclick':'return true'});
+	        			 $("#sub").attr({'onclick':'return checkNull()'}); 
 	        		}
 	        	}
 	       	 )

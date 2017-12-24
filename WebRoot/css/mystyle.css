@@ -25,6 +25,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     text-decoration: none;
     
     }
+   	#logout{
+    color: #ff8080;
+    }
     .selected{
     background-color: #00CED1;
     color: black;
@@ -429,6 +432,9 @@ input:-webkit-autofill {
 label {
   font: 500 14px Roboto;
   color: #f857a6;
+}
+h2 #login_status{
+	color: #f857a6;
 }
 
 button {
