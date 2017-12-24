@@ -71,6 +71,12 @@
 	     }  
 	}  
 		$("#email").blur(function(){
+			if($("#email").val()==null){
+				$("#emailStatus").text("x");
+    			$("#emailStatus").css({'color':'red'});
+    			$("#sub").attr({'onclick':'return false'});
+				return ;
+			}else{
 	        $.post(
 	        	"${pageContext.request.contextPath}/checkEmailServlet",
 	        	{
@@ -89,8 +95,8 @@
 	        			$("#sub").attr({'onclick':'return true'});
 	        		}
 	        	}
-	        )
-	        
+	       	 )
+			} 
 	    });
 	
 	</script>

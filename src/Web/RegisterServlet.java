@@ -28,7 +28,8 @@ public class RegisterServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
-
+	    response.setContentType("text/text");
+            response.setCharacterEncoding("UTF-8");
 	        User newUser = new User();
                 try {
                     BeanUtils.populate(newUser, request.getParameterMap());

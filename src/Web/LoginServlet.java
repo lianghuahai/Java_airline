@@ -33,7 +33,8 @@ public class LoginServlet extends HttpServlet {
 	    System.out.println("loginserlvet");
     	//check login status
     	User existUser  =us.checkLogin(request.getParameter("email"),request.getParameter("password"));
-    	
+    	response.setContentType("text/text");
+        response.setCharacterEncoding("UTF-8");
     	if(existUser!=null){
     	    request.getSession().setAttribute("existUser", existUser);
     	    response.sendRedirect(request.getContextPath()+"/index.jsp");  
